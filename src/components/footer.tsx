@@ -1,10 +1,8 @@
 import Link from "next/link";
-import { Instagram } from "lucide-react";
-import { Music2 as Tiktok } from "lucide-react";
+import { InstagramLogo, TiktokLogo, Wine } from "@phosphor-icons/react/dist/ssr";
 
 const footerLinks = {
   company: [
-    // { name: "About Us", href: "/about-us" },
     { name: "Our History", href: "/our-history" },
     { name: "Careers", href: "/careers" },
     { name: "Press", href: "/press" },
@@ -12,14 +10,11 @@ const footerLinks = {
   products: [
     { name: "Our Beers", href: "/our-beers" },
     { name: "Our Spirits", href: "/our-spirits" },
-    // { name: "Premium Collection", href: "/premium-collection" },
-    // { name: "Limited Editions", href: "/limited-editions" },
   ],
   support: [
     { name: "Contact Us", href: "/contacts" },
     { name: "FAQ", href: "/faq" },
     { name: "Shipping", href: "/shipping" },
-    // { name: "Returns", href: "/returns" },
   ],
   legal: [
     { name: "Privacy Policy", href: "/privacy-policy" },
@@ -30,9 +25,9 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { name: "Tiktok", icon: Tiktok, href: "https://tiktok.com/goldberg" },
-  { name: "Instagram Goldberg", icon: Instagram, href: "https://instagram.com/goldberg.tz" },
-  { name: "Instagram Hansons", icon: Instagram, href: "https://instagram.com/hansons_choice" },
+  { name: "TikTok", Icon: TiktokLogo, href: "https://tiktok.com/goldberg" },
+  { name: "Instagram Goldberg", Icon: InstagramLogo, href: "https://instagram.com/goldberg.tz" },
+  { name: "Instagram Hansons", Icon: InstagramLogo, href: "https://instagram.com/hansons_choice" },
 ];
 
 export default function Footer() {
@@ -43,7 +38,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8">
           {/* Brand Section */}
           <div className="lg:col-span-2">
-            <Link href="/" className="inline-block mb-4">
+            <Link href="/" className="inline-flex items-center gap-2 mb-4">
+              <Wine size={28} weight="thin" className="text-[#c99b3e]" />
               <span className="font-cursive text-4xl md:text-5xl font-bold text-foreground">
                 Eastl
               </span>
@@ -53,15 +49,15 @@ export default function Footer() {
               Experience the finest quality from East Africa.
             </p>
             {/* Social Links */}
-            <div className="flex space-x-4">
+            <div className="flex space-x-3">
               {socialLinks.map((social) => (
                 <Link
                   key={social.name}
                   href={social.href}
-                  className="p-2 rounded-lg bg-muted hover:bg-[#c99b3e] hover:text-white transition-all duration-300"
+                  className="p-2.5 rounded-lg bg-muted hover:bg-[#c99b3e] hover:text-white transition-all duration-300 group"
                   aria-label={social.name}
                 >
-                  <social.icon className="w-5 h-5" />
+                  <social.Icon size={18} weight="light" className="group-hover:scale-110 transition-transform duration-200" />
                 </Link>
               ))}
             </div>
