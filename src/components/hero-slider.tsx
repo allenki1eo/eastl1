@@ -24,7 +24,7 @@ const slides = [
   {
     title: "Inspired by Tradition. Perfected for Today",
     subtitle: "Since 2017",
-    image: "/images/4.jpg"
+    image: "/images/h_choice 3.jpg"
   }
 ];
 
