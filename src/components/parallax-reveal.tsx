@@ -130,7 +130,7 @@ export default function ParallaxReveal() {
         </div>
       </div>
 
-      <div ref={scrollRef} className="relative h-[300vh]">
+      <div ref={scrollRef} className="relative h-[200vh]">
         <div className="sticky top-0 flex h-screen items-center justify-center px-4">
           <div
             ref={videoBoxRef}

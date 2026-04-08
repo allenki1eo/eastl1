@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { InstagramLogo, TiktokLogo, Wine } from "@phosphor-icons/react/dist/ssr";
+import { InstagramLogo, TiktokLogo } from "@phosphor-icons/react/dist/ssr";
 
 const footerLinks = {
   company: [
@@ -39,7 +39,6 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-2 mb-4">
-              <Wine size={28} weight="thin" className="text-[#c99b3e]" />
               <span className="font-cursive text-4xl md:text-5xl font-bold text-foreground">
                 Eastl
               </span>

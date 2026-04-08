@@ -130,3 +130,18 @@
     text-transform: uppercase;
   }
 }
+
+/* ── History page scroll-snap ──────────────────────────────────── */
+.history-snap {
+  scroll-snap-type: y mandatory;
+  timeline-scope: --section;
+}
+
+.history-snap body {
+  background-color: #000;
+}
+
+/* ── Hide the root layout footer on history page only ─────────── */
+body:has(#history-scroll-zone) > footer {
+  display: none;
+}
