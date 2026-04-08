@@ -1,5 +1,28 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import SpiritsScrollFilter from "@/components/spirits-scroll-filter";
+
+export const metadata: Metadata = {
+  title: "Our Spirits | Hanson's Vodka, Diamond Rock Gin, Furaha Gin, Brandy",
+  description:
+    "Discover our premium spirits collection - Hanson's Choice Brandy, Diamond Rock Gin, Furaha Gin, and Hanson's Vodka. Crafted with excellence in Tanzania for East Africa and beyond.",
+  keywords: [
+    "Hanson's Choice Brandy",
+    "Diamond Rock Gin",
+    "Furaha Gin",
+    "Hanson's Vodka",
+    "Tanzania spirits",
+    "premium gin East Africa",
+    "brandy Tanzania",
+    "vodka Tanzania",
+    "East African spirits",
+    "craft spirits",
+  ],
+  openGraph: {
+    title: "Our Spirits | Hanson's, Diamond Rock Gin, Furaha Gin",
+    description: "Premium Tanzanian spirits. Hanson's Choice Brandy, Diamond Rock Gin, Furaha Gin, and Hanson's Vodka.",
+  },
+};
 
 export default function OurSpiritsPage() {
   return (

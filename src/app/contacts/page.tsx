@@ -1,5 +1,25 @@
+import type { Metadata } from "next";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Contact Us | East African Spirits Tanzania",
+  description:
+    "Contact East African Spirits - Get in touch with our team in Shinyanga, Tanzania. Reach our CEO, COO, CFO, Sales, HR, or General Inquiries departments. Business hours: Mon-Fri 8AM-5PM.",
+  keywords: [
+    "East African Spirits contact",
+    "Tanzania beverage company contact",
+    "Hanson's contact",
+    "Goldberg contact",
+    "Shinyanga office",
+    "East African Spirits phone number",
+    "East African Spirits email",
+  ],
+  openGraph: {
+    title: "Contact Us | East African Spirits Tanzania",
+    description: "Get in touch with East African Spirits - Ibadakuli, Industrial Plot 28, Shinyanga, Tanzania.",
+  },
+};
 
 const departments = [
   {

@@ -1,5 +1,28 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import BeerScrollFilter from "@/components/beer-scroll-filter";
+
+export const metadata: Metadata = {
+  title: "Our Beers | Goldberg, Hanson's Lite, Basembi Extra, Mbogo",
+  description:
+    "Explore our premium beer collection - Goldberg Lager, Hanson's Lite, Basembi Extra, Mbogo, Hanson's Dry, and Hanson's Premium Cider. Crafted with excellence in Shinyanga, Tanzania since 2018.",
+  keywords: [
+    "Goldberg beer",
+    "Hanson's Lite",
+    "Basembi Extra",
+    "Mbogo beer",
+    "Hanson's Dry",
+    "Hanson's Premium Cider",
+    "Tanzania beer brands",
+    "East African beer",
+    "premium lager Tanzania",
+    "craft beer East Africa",
+  ],
+  openGraph: {
+    title: "Our Beers | Goldberg, Hanson's Lite, Basembi Extra",
+    description: "Premium Tanzanian beers crafted with excellence. Discover Goldberg, Hanson's Lite, Basembi Extra and more.",
+  },
+};
 
 export default function OurBeersPage() {
   return (

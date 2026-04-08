@@ -24,8 +24,60 @@ const dancingScript = Dancing_Script({
 });
 
 export const metadata: Metadata = {
-  title: "East African Spirits - Premium Alcoholic Beverages",
-  description: "Discover premium spirits and beverages from East Africa",
+  title: {
+    default: "East African Spirits | Premium Beer & Spirits Tanzania",
+    template: "%s | East African Spirits Tanzania",
+  },
+  description:
+    "East African Spirits (T) Ltd - Tanzania's premier beverage company. Discover Goldberg, Hanson's Lite, Basembi Extra, Hanson's Choice Brandy, Diamond Rock Gin, and more. Premium beers and spirits crafted in Shinyanga since 2017.",
+  keywords: [
+    "East African Spirits",
+    "Tanzania beer",
+    "Tanzania spirits",
+    "Goldberg beer",
+    "Hanson's beer",
+    "Hanson's vodka",
+    "Hanson's gin",
+    "Diamond Rock Gin",
+    "Furaha Gin",
+    "Hanson's Choice Brandy",
+    "Basembi Extra",
+    "Mbogo beer",
+    "Hanson's Premium Cider",
+    "Hanson's Dry",
+    "premium alcoholic beverages East Africa",
+    "beer manufacturer Tanzania",
+    "spirits distributor Tanzania",
+    "Shinyanga brewery",
+    "East Africa drinks",
+    "Tanzania alcohol brands",
+  ],
+  metadataBase: new URL("https://eastl1.vercel.app"),
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "East African Spirits",
+    title: "East African Spirits | Premium Beer & Spirits Tanzania",
+    description:
+      "Tanzania's premier beverage company crafting premium beers and spirits since 2017. Goldberg, Hanson's, Diamond Rock Gin and more.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "East African Spirits | Premium Beer & Spirits Tanzania",
+    description:
+      "Tanzania's premier beverage company crafting premium beers and spirits since 2017.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
