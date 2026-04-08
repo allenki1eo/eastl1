@@ -19,7 +19,7 @@ const slides = [
   {
     title: "The Signature of Excellence in Every Bottle",
     subtitle: "Craftsmanship You Can Taste",
-    image: "/images/3.jpg"
+    image: "/images/hansons2.jpg"
   },
   {
     title: "Inspired by Tradition. Perfected for Today",
