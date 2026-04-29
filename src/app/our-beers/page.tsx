@@ -12,7 +12,6 @@ export const metadata: Metadata = {
     "Basembi Extra",
     "Mbogo beer",
     "Hanson's Dry",
-    "Hanson's Premium Cider",
     "Tanzania beer brands",
     "East African beer",
     "premium lager Tanzania",
