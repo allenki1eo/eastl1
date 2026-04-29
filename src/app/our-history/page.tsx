@@ -21,7 +21,7 @@ const eras = [
     title: "Expansion Era",
     description:
       "From Tanzania into Kenya and Uganda, our distribution network grew rapidly. New product lines were launched and thousands of retailers became partners — bringing our beverages to millions of consumers across the region.",
-    images: ["/images/2.jpg", "/images/3.jpg", "/images/hansonvodka.png", "/images/rock.png"],
+    images: ["/images/east9.png", "/images/east10.png", "/images/east11.png", "/images/east12.png"],
   },
   {
     id: "innovation",
