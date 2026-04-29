@@ -30,7 +30,7 @@ export default function OurBeersPage() {
       <section className="relative min-h-[60vh] md:min-h-[80vh] lg:h-screen flex items-center justify-center border-b border-white/5">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/beerhero.png"
+            src="/images/beerr_banner.png"
             alt="Our Beers"
             fill
             className="object-cover opacity-50"
