@@ -17,7 +17,6 @@ interface Beer {
   badges: {
     origin: string;
     style: string;
-    price: string;
   };
 }
 
@@ -36,8 +35,7 @@ const beers: Beer[] = [
     },
     badges: {
       origin: "Tanzania",
-      style: "Cider",
-      price: "TZS. 3000"
+      style: "Cider"
     }
   },
   {
@@ -54,8 +52,7 @@ const beers: Beer[] = [
     },
     badges: {
       origin: "Tanzania",
-      style: "Lager",
-      price: "TZS. 2500"
+      style: "Lager"
     }
   },
   {
@@ -72,8 +69,7 @@ const beers: Beer[] = [
     },
     badges: {
       origin: "Tanzania",
-      style: "Lager",
-      price: "TZS. 2000"
+      style: "Lager"
     }
   },
   {
@@ -90,8 +86,7 @@ const beers: Beer[] = [
     },
     badges: {
       origin: "Tanzania",
-      style: "Lager",
-      price: "TZS. 2300"
+      style: "Lager"
     }
   },
   {
@@ -108,8 +103,7 @@ const beers: Beer[] = [
     },
     badges: {
       origin: "Tanzania",
-      style: "Lager",
-      price: "TZS. 2500"
+      style: "Lager"
     }
   }
 ];
