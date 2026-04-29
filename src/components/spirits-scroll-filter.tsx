@@ -16,8 +16,6 @@ interface Spirit {
   };
   badges: {
     category: string;
-    age: string;
-    price: string;
   };
 }
 
@@ -35,9 +33,7 @@ const spirits: Spirit[] = [
       volume: "750ml"
     },
     badges: {
-      category: "Brandy",
-      age: "Aged",
-      price: "TZS 2500"
+      category: "Brandy"
     }
   },
   {
@@ -54,8 +50,6 @@ const spirits: Spirit[] = [
     },
     badges: {
       category: "Vodka",
-      age: "Triple Distilled",
-      price: "TZS 4800"
     }
   },
   {
@@ -72,8 +66,6 @@ const spirits: Spirit[] = [
     },
     badges: {
       category: "Gin",
-      age: "5 Years",
-      price: "TZS. 3500"
     }
   },
   {
@@ -90,8 +82,6 @@ const spirits: Spirit[] = [
     },
     badges: {
       category: "Gin",
-      age: "Small Batch",
-      price: "TZS. 2800"
     }
   }
 ];
