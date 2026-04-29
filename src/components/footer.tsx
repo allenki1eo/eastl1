@@ -13,7 +13,6 @@ const footerLinks = {
   ],
   support: [
     { name: "Contact Us", href: "/contacts" },
-    { name: "FAQ", href: "/faq" },
     { name: "Shipping", href: "/shipping" },
   ],
   legal: [
