@@ -31,7 +31,7 @@ export default function OurSpiritsPage() {
       <section className="relative h-screen flex items-center justify-center border-b border-white/5">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/spirithero.png"
+            src="/images/banner_spirit.png"
             alt="Our Spirits"
             fill
             className="object-cover opacity-50"
