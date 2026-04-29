@@ -78,24 +78,6 @@ const beers: Beer[] = [
   },
   {
     id: 4,
-    brand: "Hanson's Premium Cider",
-    name: "Hanson's Premium Cider",
-    subtitle: "Premium Cider Experience",
-    image: "/images/11.png",
-    specs: {
-      type: "Cider",
-      abv: "4.8%",
-      ibu: "22 IBU",
-      volume: "500ml"
-    },
-    badges: {
-      origin: "Tanzania",
-      style: "Cider",
-      price: "TZS. 2200"
-    }
-  },
-  {
-    id: 5,
     brand: "Basembi",
     name: "Basembi Premium Lager",
     subtitle: "Authentic East African Lager",
@@ -113,7 +95,7 @@ const beers: Beer[] = [
     }
   },
   {
-    id: 6,
+    id: 5,
     brand: "Mbogo",
     name: "Mbogo Premium Lager",
     subtitle: "Strong & Bold Premium Lager",
