@@ -154,6 +154,8 @@ export default function BeerScrollFilter() {
         {beers.map((beer, index) => (
           <div
             key={beer.id}
+            onMouseEnter={() => setCurrentIndex(index)}
+            onMouseLeave={() => setCurrentIndex(-1)}
             onClick={() => setActiveSlide(index)}
             className={`relative cursor-pointer bg-cover bg-center bg-no-repeat overflow-hidden transition-all duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${currentIndex === index
               ? "flex-[2.5] md:flex-[2.5]"
