@@ -30,7 +30,7 @@ const eras = [
     title: "Innovation & Growth",
     description:
       "We deepened our commitment to product excellence — introducing premium gins, refining our vodka, and modernising our brewing processes. Quality became our sharpest competitive edge as we invested in sustainable production.",
-    images: ["/images/press/1.png", "/images/press/2.png", "/images/press/3.png", "/images/press/4.png"],
+    images: ["/images/east9.png", "/images/east10.png", "/images/east11.png", "/images/east12.png"],
   },
   {
     id: "today",
