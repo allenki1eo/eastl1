@@ -39,6 +39,22 @@ const spirits: Spirit[] = [
   {
     id: 2,
     brand: "Hanson's",
+    name: "Hanson's Choice",
+    subtitle: "Premium Brandy Crafted to Perfection",
+    image: "/images/hanson200.png",
+    specs: {
+      type: "Premium Brandy",
+      abv: "40.0%",
+      origin: "East Africa",
+      volume: "200ml"
+    },
+    badges: {
+      category: "Brandy"
+    }
+  },
+  {
+    id: 5,
+    brand: "Hanson's",
     name: "Hanson's Vodka Premium",
     subtitle: "Pure Distilled Excellence",
     image: "/images/hansonvodka.png",
