@@ -53,7 +53,7 @@ const spirits: Spirit[] = [
     }
   },
   {
-    id: 5,
+    id: 3,
     brand: "Hanson's",
     name: "Hanson's Vodka Premium",
     subtitle: "Pure Distilled Excellence",
@@ -69,7 +69,7 @@ const spirits: Spirit[] = [
     }
   },
   {
-    id: 3,
+    id: 4,
     brand: "Diamond Rock",
     name: "Diamond Rock Gin",
     subtitle: "Premium Gin Crafted to Perfection",
@@ -85,7 +85,7 @@ const spirits: Spirit[] = [
     }
   },
   {
-    id: 4,
+    id: 5,
     brand: "furaha",
     name: "Furaha Gin",
     subtitle: "Perfection in Every Drop",
