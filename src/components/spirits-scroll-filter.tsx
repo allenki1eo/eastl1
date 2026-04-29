@@ -85,7 +85,7 @@ const spirits: Spirit[] = [
     }
   },
   {
-    id: 6,
+    id:5,
     brand: "Diamond Rock",
     name: "Diamond Rock Pineapple",
     subtitle: "Tropical Pineapple Infusion",
@@ -101,7 +101,7 @@ const spirits: Spirit[] = [
     }
   },
   {
-    id: 5,
+    id: 6,
     brand: "furaha",
     name: "Furaha Gin",
     subtitle: "Perfection in Every Drop",
