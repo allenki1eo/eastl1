@@ -296,7 +296,6 @@ export default function BeerScrollFilter() {
                   style={{ fontFamily: "var(--font-open-sans), sans-serif" }}
                 >
                   <span className="w-1.5 md:w-2 h-1.5 md:h-2 bg-[#c99b3e] rounded-full"></span>
-                  <span>{beer.badges.price}</span>
                 </div>
               </div>
             </div>
