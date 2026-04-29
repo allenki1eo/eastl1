@@ -288,15 +288,6 @@ export default function BeerScrollFilter() {
                   <span className="w-1.5 md:w-2 h-1.5 md:h-2 bg-[#c99b3e] rounded-full"></span>
                   <span>{beer.badges.style}</span>
                 </div>
-                <div
-                  className={`flex items-center gap-1 md:gap-1.5 px-1.5 md:px-2 py-0.5 md:py-1 bg-white/10 rounded-xl text-[10px] md:text-xs font-medium transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${currentIndex === index
-                    ? "opacity-100 scale-100 delay-[950ms]"
-                    : "opacity-0 scale-80"
-                    }`}
-                  style={{ fontFamily: "var(--font-open-sans), sans-serif" }}
-                >
-                  <span className="w-1.5 md:w-2 h-1.5 md:h-2 bg-[#c99b3e] rounded-full"></span>
-                </div>
               </div>
             </div>
 
