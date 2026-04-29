@@ -25,7 +25,7 @@ const spirits: Spirit[] = [
     brand: "Hanson's",
     name: "Hanson's Choice Premium",
     subtitle: "Premium Brandy Crafted to Perfection",
-    image: "/images/hanson750.png",
+    image: "/images/Hanson750.png",
     specs: {
       type: "Premium Brandy",
       abv: "40.0%",
