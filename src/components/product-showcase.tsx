@@ -33,7 +33,7 @@ const showcaseItems = [
     title: "Modern process, consistent delivery",
     description:
       "Operational investment supports cleaner output, stronger control, and better scalability across both spirits and beer lines.",
-    image: "/images/p5.png",
+    image: "/images/industry.png",
     details: [
       "A strong production backbone matters. Advanced processing and filtration approaches make it easier to protect flavor clarity, reduce variability, and support higher volumes without drift in quality.",
       "Packaging, storage, and logistics are treated as part of product quality, not separate steps. That mindset improves freshness, protects brand trust, and strengthens retailer confidence.",
