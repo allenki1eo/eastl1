@@ -85,6 +85,22 @@ const spirits: Spirit[] = [
     }
   },
   {
+    id: 6,
+    brand: "Diamond Rock",
+    name: "Diamond Rock Pineapple",
+    subtitle: "Tropical Pineapple Infusion",
+    image: "/images/pineapple.png",
+    specs: {
+      type: "Flavoured Gin",
+      abv: "43.0%",
+      origin: "East Africa",
+      volume: "750ml"
+    },
+    badges: {
+      category: "Gin",
+    }
+  },
+  {
     id: 4,
     brand: "furaha",
     name: "Furaha Gin",
