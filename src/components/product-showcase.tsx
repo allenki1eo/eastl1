@@ -45,7 +45,7 @@ const showcaseItems = [
     title: "People-first and responsibility-led",
     description:
       "The strongest long-term brands combine celebration with responsibility, and growth with respect for consumers and communities.",
-    image: "/images/industry4.png",
+    image: "/images/industry2.png",
     details: [
       "Great beverage companies do more than sell products - they shape culture. Responsible consumption messaging, age-gate clarity, and transparent communication are central to that role.",
       "Customer feedback loops, practical support channels, and clear contact pathways keep the brand close to the people it serves.",
