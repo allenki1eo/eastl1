@@ -26,7 +26,7 @@ const beers: Beer[] = [
     brand: "Hanson's Dry",
     name: "Hanson's Dry Crispy Apple Cider",
     subtitle: "Premium Apple Cider Experience",
-    image: "/images/8.png",
+    image: "/images/cider.png",
     specs: {
       type: "Cider",
       abv: "5.0%",
@@ -43,7 +43,7 @@ const beers: Beer[] = [
     brand: "Goldberg",
     name: "Goldberg Premium Quality Malt Lager",
     subtitle: "Premium Malt Lager Experience",
-    image: "/images/10.png",
+    image: "/images/goldberg.png",
     specs: {
       type: "Premium Malt Lager",
       abv: "5.6%",
@@ -60,7 +60,7 @@ const beers: Beer[] = [
     brand: "Hanson's Lite",
     name: "Hanson's Lite Premium Lager",
     subtitle: "Premium Lager Experience",
-    image: "/images/12.png",
+    image: "/images/litee.png",
     specs: {
       type: "Premium Lager",
       abv: "4.2%",
@@ -77,7 +77,7 @@ const beers: Beer[] = [
     brand: "Basembi",
     name: "Basembi Premium Lager",
     subtitle: "Authentic East African Lager",
-    image: "/images/13.png",
+    image: "/images/basembi.png",
     specs: {
       type: "Premium Lager",
       abv: "5.0%",
@@ -94,7 +94,7 @@ const beers: Beer[] = [
     brand: "Mbogo",
     name: "Mbogo Premium Lager",
     subtitle: "Strong & Bold Premium Lager",
-    image: "/images/14.png",
+    image: "/images/mbogo.png",
     specs: {
       type: "Premium Lager",
       abv: "5.5%",

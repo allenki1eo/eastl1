@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { X } from "lucide-react";
 
 interface PressRelease {
@@ -95,81 +94,27 @@ export default function PressPage() {
             </p>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-3">
             {pressReleases.map((release) => (
               <button
                 key={release.id}
                 onClick={() => setSelectedRelease(release)}
-                className="w-full text-left bg-zinc-900/50 border border-white/10 rounded-2xl p-6 md:p-8 hover:bg-white/5 hover:border-[#c99b3e]/50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#c99b3e] focus:ring-inset group"
+                className="w-full text-left bg-zinc-900/50 rounded-none p-6 md:p-8 hover:bg-zinc-900/80 transition-all duration-300 focus:outline-none group"
               >
-                <div className="flex items-center gap-3 mb-3">
-                  <span
-                    className="text-xs font-semibold uppercase tracking-wider text-[#c99b3e] bg-[#c99b3e]/10 px-3 py-1 rounded-full"
-                    style={{ fontFamily: "var(--font-bebas), sans-serif" }}
-                  >
-                    {release.date}
-                  </span>
-                  <span
-                    className="text-xs font-semibold uppercase tracking-wider text-white/50 bg-white/5 px-3 py-1 rounded-full"
-                    style={{ fontFamily: "var(--font-bebas), sans-serif" }}
-                  >
-                    Press Release
-                  </span>
-                </div>
                 <h3
-                  className="text-2xl md:text-3xl lg:text-4xl font-bold text-white uppercase tracking-tight leading-tight group-hover:text-[#c99b3e] transition-colors"
+                  className="text-2xl md:text-3xl lg:text-4xl font-bold text-white uppercase tracking-tight leading-tight"
                   style={{ fontFamily: "var(--font-bebas), sans-serif" }}
                 >
                   {release.title}
                 </h3>
-                <p
-                  className="text-lg text-white/60 mt-4 leading-relaxed"
-                  style={{ fontFamily: "var(--font-open-sans), sans-serif" }}
-                >
-                  {release.excerpt}
-                </p>
-                <div className="mt-6 flex items-center text-[#c99b3e] text-sm font-semibold uppercase tracking-wider" style={{ fontFamily: "var(--font-open-sans), sans-serif" }}>
-                  Read Full Story <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                <div className="mt-4 flex items-center text-white text-sm font-semibold uppercase tracking-wider" style={{ fontFamily: "var(--font-open-sans), sans-serif" }}>
+                  Read More <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
                 </div>
               </button>
             ))}
           </div>
 
-          {/* Media Contact */}
-          <div className="mt-16 bg-zinc-900/50 border border-[#c99b3e]/30 rounded-2xl p-8">
-            <div className="text-center">
-              <h3
-                className="text-2xl md:text-3xl font-bold text-white mb-4 uppercase tracking-wide"
-                style={{ fontFamily: "var(--font-bebas), sans-serif" }}
-              >
-                Media Inquiries
-              </h3>
-              <p
-                className="text-white/70 mb-6"
-                style={{ fontFamily: "var(--font-open-sans), sans-serif" }}
-              >
-                For press inquiries, interviews, or additional information, please contact our media relations team.
-              </p>
-              <div
-                className="space-y-2 text-white/70"
-                style={{ fontFamily: "var(--font-open-sans), sans-serif" }}
-              >
-                <p>
-                  <strong className="text-white">East African Spirits (T) Limited</strong>
-                </p>
-                <p>Ibadakuli, Industrial Plot 28, Shinyanga, Tanzania</p>
-                <p>Email: info@eastafricanspirits.com</p>
-                <p>Phone: +255 767 650 806</p>
-              </div>
-              <Link
-                href="/contacts"
-                className="inline-block mt-6 bg-[#c99b3e] hover:bg-[#d4a84a] text-white font-semibold uppercase tracking-wide px-8 py-3 rounded-full transition-all duration-300 hover:scale-105"
-                style={{ fontFamily: "var(--font-bebas), sans-serif" }}
-              >
-                Contact Us
-              </Link>
-            </div>
-          </div>
+          
         </div>
       </section>
 
@@ -183,7 +128,7 @@ export default function PressPage() {
             {/* Close Button */}
             <button
               onClick={() => setSelectedRelease(null)}
-              className="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-[#c99b3e] text-white rounded-full transition-colors backdrop-blur-md border border-white/10"
+              className="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-white/20 text-white rounded-full transition-colors backdrop-blur-md border border-white/10"
               aria-label="Close modal"
             >
               <X size={24} />
@@ -194,7 +139,7 @@ export default function PressPage() {
               <div className="mb-8">
                 <div className="flex items-center gap-3 mb-4">
                   <span
-                    className="text-xs font-semibold uppercase tracking-wider text-[#c99b3e] bg-[#c99b3e]/10 px-3 py-1 rounded-full"
+                    className="text-xs font-semibold uppercase tracking-wider text-white bg-white/10 px-3 py-1 rounded-full"
                     style={{ fontFamily: "var(--font-bebas), sans-serif" }}
                   >
                     {selectedRelease.date}
@@ -216,7 +161,7 @@ export default function PressPage() {
                     className="bg-zinc-900 border border-white/5 rounded-xl p-4 text-center"
                   >
                     <div
-                      className="text-xl md:text-2xl font-bold text-[#c99b3e] mb-1"
+                      className="text-xl md:text-2xl font-bold text-white mb-1"
                       style={{ fontFamily: "var(--font-bebas), sans-serif" }}
                     >
                       {highlight.value}
