@@ -12,7 +12,7 @@ const eras = [
     title: "The Founding",
     description:
       "Born from a vision to craft premium beverages that reflect the spirit of East Africa, East African Spirits was established in 2017. Starting with a small team and bold ambitions, we set out to redefine quality in the regional beverage market.",
-    images: ["/images/east7.png", "/images/east5.png", "/images/.png", "/images/east6.png"],
+    images: ["/images/east4.png", "/images/east1.png", "/images/east2.png", "/images/east3.png"],
   },
   {
     id: "expansion",
@@ -21,7 +21,7 @@ const eras = [
     title: "Expansion Era",
     description:
       "From Tanzania into Kenya and Uganda, our distribution network grew rapidly. New product lines were launched and thousands of retailers became partners — bringing our beverages to millions of consumers across the region.",
-    images: ["/images/east9.png", "/images/east10.png", "/images/east11.png", "/images/east12.png"],
+    images: ["/images/east7.png", "/images/east5.png", "/images/.png", "/images/east6.png"],
   },
   {
     id: "innovation",
