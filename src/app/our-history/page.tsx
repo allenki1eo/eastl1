@@ -69,7 +69,7 @@ export default function OurHistoryPage() {
       {/* Hero — first snap point */}
       <section className={styles.heroSection}>
         <div className="absolute inset-0 z-0">
-          <Image src="/images/3.jpg" alt="Our History" fill className="object-cover opacity-20" priority />
+          <Image src="/images/history.png" alt="Our History" fill className="object-cover opacity-20" priority />
           <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black to-transparent" />
         </div>
         <div className="relative z-10 text-center px-4">
