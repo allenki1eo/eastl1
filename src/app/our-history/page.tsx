@@ -20,8 +20,8 @@ const eras = [
     year: "2018 – 2019",
     title: "Expansion Era",
     description:
-      "From Tanzania into Kenya and Uganda, our distribution network grew rapidly. New product lines were launched and thousands of retailers became partners — bringing our beverages to millions of consumers across the region.",
-    images: ["/images/east7.png", "/images/east5.png", "/images/.png", "/images/east6.png"],
+      "From Shinyanga to the whole Nation, our distribution network grew rapidly. New product lines were launched and thousands of retailers became partners — bringing our beverages to millions of consumers across the region.",
+    images: ["/images/east7.png", "/images/east5.png", "/images/east6.png"],
   },
   {
     id: "innovation",
