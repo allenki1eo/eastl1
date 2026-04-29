@@ -73,7 +73,7 @@ const spirits: Spirit[] = [
     brand: "Diamond Rock",
     name: "Diamond Rock Gin",
     subtitle: "Premium Gin Crafted to Perfection",
-    image: "/images/rock2.png",
+    image: "/images/gin200.png",
     specs: {
       type: "Premium Gin",
       abv: "43.0%",
