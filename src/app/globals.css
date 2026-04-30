@@ -133,7 +133,7 @@
 
 /* ── History page scroll-snap ──────────────────────────────────── */
 .history-snap {
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
   timeline-scope: --section;
 }
 
