@@ -9,7 +9,7 @@ const slides = [
   {
     title: "Where every sip tells a story",
     subtitle: "Crafted for Those Who Celebrate Life in Full Flavor",
-    image: "/images/slider1.jpg"
+    image: "/images/banner1.png"
   },
   {
     title: "Pour Happiness. Serve Memories.",
@@ -19,12 +19,12 @@ const slides = [
   {
     title: "The Signature of Excellence in Every Bottle",
     subtitle: "Craftsmanship You Can Taste",
-    image: "/images/hansons2.jpg"
+    image: "/images/banner3.png"
   },
   {
     title: "Inspired by Tradition. Perfected for Today",
     subtitle: "Since 2017",
-    image: "/images/h_choice 3.jpg"
+    image: "/images/banner4.png"
   }
 ];
 

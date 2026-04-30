@@ -12,7 +12,7 @@ const eras = [
     title: "The Founding",
     description:
       "Born from a vision to craft premium beverages that reflect the spirit of East Africa, East African Spirits was established in 2017. Starting with a small team and bold ambitions, we set out to redefine quality in the regional beverage market.",
-    images: ["/images/1.jpg", "/images/9.png", "/images/hanson1.png", "/images/hanson2.png"],
+    images: ["/images/east4.png", "/images/east1.png", "/images/east2.png", "/images/east3.png"],
   },
   {
     id: "expansion",
@@ -20,8 +20,8 @@ const eras = [
     year: "2018 – 2019",
     title: "Expansion Era",
     description:
-      "From Tanzania into Kenya and Uganda, our distribution network grew rapidly. New product lines were launched and thousands of retailers became partners — bringing our beverages to millions of consumers across the region.",
-    images: ["/images/2.jpg", "/images/3.jpg", "/images/hansonvodka.png", "/images/rock.png"],
+      "From Shinyanga to the whole Nation, our distribution network grew rapidly. New product lines were launched and thousands of retailers became partners — bringing our beverages to millions of consumers across the region.",
+    images: ["/images/east7.png", "/images/east5.png", "/images/east6.png"],
   },
   {
     id: "innovation",
@@ -30,7 +30,7 @@ const eras = [
     title: "Innovation & Growth",
     description:
       "We deepened our commitment to product excellence — introducing premium gins, refining our vodka, and modernising our brewing processes. Quality became our sharpest competitive edge as we invested in sustainable production.",
-    images: ["/images/4.jpg", "/images/rock2.png", "/images/furaha.png", "/images/p1.png"],
+    images: ["/images/east9.png", "/images/east10.png", "/images/east11.png", "/images/east12.png"],
   },
   {
     id: "today",
@@ -69,7 +69,7 @@ export default function OurHistoryPage() {
       {/* Hero — first snap point */}
       <section className={styles.heroSection}>
         <div className="absolute inset-0 z-0">
-          <Image src="/images/3.jpg" alt="Our History" fill className="object-cover opacity-20" priority />
+          <Image src="/images/history.png" alt="Our History" fill className="object-cover opacity-20" priority />
           <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black to-transparent" />
         </div>
         <div className="relative z-10 text-center px-4">

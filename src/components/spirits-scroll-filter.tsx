@@ -25,7 +25,7 @@ const spirits: Spirit[] = [
     brand: "Hanson's",
     name: "Hanson's Choice Premium",
     subtitle: "Premium Brandy Crafted to Perfection",
-    image: "/images/hanson2.png",
+    image: "/images/Hanson750.png",
     specs: {
       type: "Premium Brandy",
       abv: "40.0%",
@@ -38,6 +38,22 @@ const spirits: Spirit[] = [
   },
   {
     id: 2,
+    brand: "Hanson's",
+    name: "Hanson's Choice",
+    subtitle: "Premium Brandy Crafted to Perfection",
+    image: "/images/hanson200.png",
+    specs: {
+      type: "Premium Brandy",
+      abv: "40.0%",
+      origin: "East Africa",
+      volume: "200ml"
+    },
+    badges: {
+      category: "Brandy"
+    }
+  },
+  {
+    id: 3,
     brand: "Hanson's",
     name: "Hanson's Vodka Premium",
     subtitle: "Pure Distilled Excellence",
@@ -53,11 +69,11 @@ const spirits: Spirit[] = [
     }
   },
   {
-    id: 3,
+    id: 4,
     brand: "Diamond Rock",
     name: "Diamond Rock Gin",
     subtitle: "Premium Gin Crafted to Perfection",
-    image: "/images/rock2.png",
+    image: "/images/gin200.png",
     specs: {
       type: "Premium Gin",
       abv: "43.0%",
@@ -69,7 +85,23 @@ const spirits: Spirit[] = [
     }
   },
   {
-    id: 4,
+    id:5,
+    brand: "Diamond Rock",
+    name: "Diamond Rock Pineapple",
+    subtitle: "Tropical Pineapple Infusion",
+    image: "/images/pineapple.png",
+    specs: {
+      type: "Flavoured Gin",
+      abv: "43.0%",
+      origin: "East Africa",
+      volume: "750ml"
+    },
+    badges: {
+      category: "Gin",
+    }
+  },
+  {
+    id: 6,
     brand: "furaha",
     name: "Furaha Gin",
     subtitle: "Perfection in Every Drop",

@@ -127,41 +127,21 @@ export default function PressPage() {
             </p>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-3">
             {pressReleases.map((release) => (
               <button
                 key={release.id}
                 onClick={() => setSelectedRelease(release)}
-                className="w-full text-left bg-zinc-900/50 border border-white/10 rounded-2xl p-6 md:p-8 hover:bg-white/5 hover:border-[#c99b3e]/50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#c99b3e] focus:ring-inset group"
+                className="w-full text-left bg-zinc-900/50 rounded-none p-6 md:p-8 hover:bg-zinc-900/80 transition-all duration-300 focus:outline-none group"
               >
-                <div className="flex items-center gap-3 mb-3">
-                  <span
-                    className="text-xs font-semibold uppercase tracking-wider text-[#c99b3e] bg-[#c99b3e]/10 px-3 py-1 rounded-full"
-                    style={{ fontFamily: "var(--font-bebas), sans-serif" }}
-                  >
-                    {release.date}
-                  </span>
-                  <span
-                    className="text-xs font-semibold uppercase tracking-wider text-white/50 bg-white/5 px-3 py-1 rounded-full"
-                    style={{ fontFamily: "var(--font-bebas), sans-serif" }}
-                  >
-                    Press Release
-                  </span>
-                </div>
                 <h3
-                  className="text-2xl md:text-3xl lg:text-4xl font-bold text-white uppercase tracking-tight leading-tight group-hover:text-[#c99b3e] transition-colors"
+                  className="text-2xl md:text-3xl lg:text-4xl font-bold text-white uppercase tracking-tight leading-tight"
                   style={{ fontFamily: "var(--font-bebas), sans-serif" }}
                 >
                   {release.title}
                 </h3>
-                <p
-                  className="text-lg text-white/60 mt-4 leading-relaxed"
-                  style={{ fontFamily: "var(--font-open-sans), sans-serif" }}
-                >
-                  {release.excerpt}
-                </p>
-                <div className="mt-6 flex items-center text-[#c99b3e] text-sm font-semibold uppercase tracking-wider" style={{ fontFamily: "var(--font-open-sans), sans-serif" }}>
-                  Read Full Story <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                <div className="mt-4 flex items-center text-white text-sm font-semibold uppercase tracking-wider" style={{ fontFamily: "var(--font-open-sans), sans-serif" }}>
+                  Read More <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
                 </div>
               </button>
             ))}
@@ -294,7 +274,7 @@ export default function PressPage() {
                 </div>
               </div>
 
-              {/* Image Gallery */}
+              {/* Gallery */}
               <div>
                 <h4
                   className="text-lg font-bold text-white mb-4 uppercase tracking-wide"
