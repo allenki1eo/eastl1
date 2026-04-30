@@ -24,7 +24,7 @@ const pressReleases: PressRelease[] = [
       "Deputy Minister Dr. Chaya commends local investor for TZS 34 billion commitment to Tanzania's beverage industry.",
     content: [
       "East African Spirits (T) Limited (EASTL), a leading Tanzanian beverage manufacturer headquartered in Shinyanga, received high praise from the Deputy Minister of State in the President's Office – Planning and Investment, Hon. Dr. Pius Stephen Chaya, during his official visit to the company's state-of-the-art production facility.",
-      "Dr. Chaya commended EASTL Director Mr. Gaspar Kileo for his patriotic investment of over TZS 34 billion (approximately USD 13 million) in Tanzania's beverage industry, calling it a model example of productive investment that fulfills the Sixth Phase Government's agenda under President Dr. Samia Suluhu Hassan to grow the national economy, create employment, and increase government revenue.",
+      "Dr. Chaya commended EASTL Director Mr. Gasper Kileo for his patriotic investment of over TZS 34 billion (approximately USD 13 million) in Tanzania's beverage industry, calling it a model example of productive investment that fulfills the Sixth Phase Government's agenda under President Dr. Samia Suluhu Hassan to grow the national economy, create employment, and increase government revenue.",
       '"This is the kind of investment that touches the lives of many citizens. It stimulates agriculture, creates jobs for both educated and uneducated Tanzanians, and increases national revenue. This is exactly the aspiration of the Government," stated Dr. Chaya.',
       "Construction of the EASTL facility began in October 2019 with the goal of adding value to local agricultural products in the Shinyanga region. After completion and installation of modern equipment, the factory was officially launched in March 2023. Since then, it has been producing beverages that meet the highest quality and market competitiveness standards.",
       "During the visit, Dr. Chaya also identified opportunities for investment in bottle manufacturing, noting that currently Tanzania has only one bottle manufacturer based in Dar es Salaam. He highlighted the government's Industrial Parks initiative, which aims to establish industrial zones in every district, presenting significant opportunities for investors in packaging and related sectors.",
@@ -39,7 +39,7 @@ const pressReleases: PressRelease[] = [
       { src: "/images/press/minister-visit-1.jpg", alt: "Deputy Minister Dr. Chaya touring the production facility" },
       { src: "/images/press/minister-visit-2.jpg", alt: "State-of-the-art Della Toffola bottling equipment" },
       { src: "/images/press/minister-visit-3.jpg", alt: "Quality control and production line inspection" },
-      { src: "/images/press/minister-visit-4.jpg", alt: "Mr. Gaspar Kileo explaining the production process" },
+      { src: "/images/press/minister-visit-4.jpg", alt: "Mr. Gasper Kileo explaining the production process" },
     ],
   },
 ];
