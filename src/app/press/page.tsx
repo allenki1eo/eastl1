@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { X } from "lucide-react";
 
 interface PressRelease {
@@ -43,10 +44,42 @@ const pressReleases: PressRelease[] = [
   },
 ];
 
+function PressImage({ src, alt }: { src: string; alt: string }) {
+  const [errored, setErrored] = useState(false);
+
+  if (errored) {
+    return (
+      <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-zinc-900 border border-white/5 flex items-center justify-center">
+        <span className="text-white/20 text-xs uppercase tracking-wider" style={{ fontFamily: "var(--font-bebas), sans-serif" }}>
+          Image unavailable
+        </span>
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-zinc-900 border border-white/5">
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className="object-cover hover:scale-105 transition-transform duration-700"
+        onError={() => setErrored(true)}
+      />
+      {alt && (
+        <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/70 to-transparent px-4 py-3">
+          <p className="text-white/70 text-xs" style={{ fontFamily: "var(--font-open-sans), sans-serif" }}>
+            {alt}
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function PressPage() {
   const [selectedRelease, setSelectedRelease] = useState<PressRelease | null>(null);
 
-  // Prevent background scrolling when modal is open
   useEffect(() => {
     if (selectedRelease) {
       document.body.style.overflow = "hidden";
@@ -114,117 +147,145 @@ export default function PressPage() {
             ))}
           </div>
 
-          
+          {/* Media Contact */}
+          <div className="mt-16 bg-zinc-900/50 border border-white/10 border-l-[3px] border-l-[#c99b3e] rounded-2xl p-8">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              <div>
+                <h3
+                  className="text-2xl md:text-3xl font-bold text-white mb-2 uppercase tracking-wide"
+                  style={{ fontFamily: "var(--font-bebas), sans-serif" }}
+                >
+                  Media Inquiries
+                </h3>
+                <p
+                  className="text-white/60 mb-4 max-w-lg"
+                  style={{ fontFamily: "var(--font-open-sans), sans-serif" }}
+                >
+                  For press inquiries, interviews, or additional information, please contact our media relations team.
+                </p>
+                <div
+                  className="space-y-1 text-white/70 text-sm"
+                  style={{ fontFamily: "var(--font-open-sans), sans-serif" }}
+                >
+                  <p><strong className="text-white">East African Spirits (T) Limited</strong></p>
+                  <p>Ibadakuli, Industrial Plot 28, Shinyanga, Tanzania</p>
+                  <p>info@eastafricanspirits.com &nbsp;·&nbsp; +255 767 650 806</p>
+                </div>
+              </div>
+              <Link
+                href="/contacts"
+                className="shrink-0 inline-block bg-[#c99b3e] hover:bg-[#d4a84a] text-white font-semibold uppercase tracking-wide px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 text-center"
+                style={{ fontFamily: "var(--font-bebas), sans-serif" }}
+              >
+                Contact Us
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Modal Overlay */}
       {selectedRelease && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
-          <div 
+          <div
             className="bg-zinc-950 border border-white/10 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative shadow-2xl animate-in zoom-in-95 duration-200"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
               onClick={() => setSelectedRelease(null)}
-              className="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-white/20 text-white rounded-full transition-colors backdrop-blur-md border border-white/10"
+              className="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-[#c99b3e] text-white rounded-full transition-colors backdrop-blur-md border border-white/10"
               aria-label="Close modal"
             >
               <X size={24} />
             </button>
 
             <div className="p-6 md:p-10">
-              {/* Modal Header */}
-              <div className="mb-8">
+              {/* Header */}
+              <div className="mb-8 border-b border-white/10 pb-8">
                 <div className="flex items-center gap-3 mb-4">
                   <span
-                    className="text-xs font-semibold uppercase tracking-wider text-white bg-white/10 px-3 py-1 rounded-full"
+                    className="text-xs font-semibold uppercase tracking-wider text-[#c99b3e] bg-[#c99b3e]/10 px-3 py-1 rounded-full"
                     style={{ fontFamily: "var(--font-bebas), sans-serif" }}
                   >
                     {selectedRelease.date}
                   </span>
+                  <span
+                    className="text-xs font-semibold uppercase tracking-wider text-white/40 bg-white/5 px-3 py-1 rounded-full"
+                    style={{ fontFamily: "var(--font-bebas), sans-serif" }}
+                  >
+                    Press Release
+                  </span>
                 </div>
                 <h2
-                  className="text-3xl md:text-5xl font-bold text-white uppercase tracking-tight leading-tight"
+                  className="text-3xl md:text-5xl font-bold text-white uppercase tracking-tight leading-tight mb-4"
                   style={{ fontFamily: "var(--font-bebas), sans-serif" }}
                 >
                   {selectedRelease.title}
                 </h2>
+                <p
+                  className="text-lg text-white/60 leading-relaxed"
+                  style={{ fontFamily: "var(--font-open-sans), sans-serif" }}
+                >
+                  {selectedRelease.excerpt}
+                </p>
               </div>
 
-              {/* Highlights Grid */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-                {selectedRelease.highlights.map((highlight) => (
-                  <div
-                    key={highlight.label}
-                    className="bg-zinc-900 border border-white/5 rounded-xl p-4 text-center"
-                  >
-                    <div
-                      className="text-xl md:text-2xl font-bold text-white mb-1"
-                      style={{ fontFamily: "var(--font-bebas), sans-serif" }}
-                    >
-                      {highlight.value}
-                    </div>
-                    <div
-                      className="text-[10px] md:text-xs text-white/50 uppercase tracking-wider"
-                      style={{ fontFamily: "var(--font-bebas), sans-serif" }}
-                    >
-                      {highlight.label}
-                    </div>
-                  </div>
+              {/* Article Body */}
+              <div
+                className="space-y-5 text-base md:text-lg text-white/80 leading-relaxed mb-10"
+                style={{ fontFamily: "var(--font-open-sans), sans-serif" }}
+              >
+                {selectedRelease.content.map((paragraph, index) => (
+                  <p key={index} className={index === 0 ? "text-white/90 font-medium" : ""}>
+                    {paragraph}
+                  </p>
                 ))}
               </div>
 
-              {/* Image Gallery */}
+              {/* Key Highlights */}
               <div className="mb-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {selectedRelease.images.map((image, index) => (
+                <h4
+                  className="text-lg font-bold text-white mb-4 uppercase tracking-wide"
+                  style={{ fontFamily: "var(--font-bebas), sans-serif" }}
+                >
+                  Key Highlights
+                </h4>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                  {selectedRelease.highlights.map((highlight) => (
                     <div
-                      key={index}
-                      className="relative aspect-[16/10] rounded-xl overflow-hidden bg-zinc-900 border border-white/5"
+                      key={highlight.label}
+                      className="bg-zinc-900 border border-white/5 rounded-xl p-4 text-center"
                     >
-                      <Image
-                        src={image.src}
-                        alt={image.alt}
-                        fill
-                        className="object-cover hover:scale-105 transition-transform duration-700"
-                      />
+                      <div
+                        className="text-xl md:text-2xl font-bold text-[#c99b3e] mb-1"
+                        style={{ fontFamily: "var(--font-bebas), sans-serif" }}
+                      >
+                        {highlight.value}
+                      </div>
+                      <div
+                        className="text-[10px] md:text-xs text-white/50 uppercase tracking-wider"
+                        style={{ fontFamily: "var(--font-bebas), sans-serif" }}
+                      >
+                        {highlight.label}
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Content */}
-              <div
-                className="space-y-6 text-lg text-white/80 leading-relaxed"
-                style={{ fontFamily: "var(--font-open-sans), sans-serif" }}
-              >
-                {selectedRelease.content.map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
-                ))}
-              </div>
-
-              {/* Featured Products */}
-              <div className="mt-12 pt-8 border-t border-white/10">
+              {/* Gallery */}
+              <div>
                 <h4
-                  className="text-xl font-bold text-white mb-4 uppercase tracking-wide"
+                  className="text-lg font-bold text-white mb-4 uppercase tracking-wide"
                   style={{ fontFamily: "var(--font-bebas), sans-serif" }}
                 >
-                  Featured Products
+                  Gallery
                 </h4>
-                <div className="flex flex-wrap gap-3">
-                  {["Goldberg Malt Lager", "Hanson's Lite", "Basembi Extra", "Hanson's Choice Brandy", "Diamond Rock Gin"].map(
-                    (product) => (
-                      <span
-                        key={product}
-                        className="text-sm text-white/80 bg-zinc-900 border border-white/10 px-4 py-2 rounded-lg"
-                        style={{ fontFamily: "var(--font-bebas), sans-serif" }}
-                      >
-                        {product}
-                      </span>
-                    )
-                  )}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {selectedRelease.images.map((image, index) => (
+                    <PressImage key={index} src={image.src} alt={image.alt} />
+                  ))}
                 </div>
               </div>
             </div>
