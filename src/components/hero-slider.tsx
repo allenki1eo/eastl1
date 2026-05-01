@@ -69,7 +69,7 @@ export default function HeroSlider() {
 
     let prog = 0;
     autoSlideRef.current = setInterval(() => {
-      prog += 0.5; // Slowed down slightly: 0.5% every 100ms = 20 seconds total (was 5s)
+      prog += 2; // 2% every 100ms = 5 seconds total
       setAutoSlideProgress(prog);
 
       if (prog >= 100) {
