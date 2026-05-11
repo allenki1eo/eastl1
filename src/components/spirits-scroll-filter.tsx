@@ -60,7 +60,7 @@ const spirits: Spirit[] = [
     image: "/images/hansonvodka.png",
     specs: {
       type: "Premium Vodka",
-      abv: "37.5%",
+      abv: "40.0%",
       origin: "East Africa",
       volume: "250ml"
     },
@@ -76,7 +76,7 @@ const spirits: Spirit[] = [
     image: "/images/gin200.png",
     specs: {
       type: "Premium Gin",
-      abv: "43.0%",
+      abv: "40.0%",
       origin: "East Africa",
       volume: "250ml"
     },
@@ -92,7 +92,7 @@ const spirits: Spirit[] = [
     image: "/images/pineapple.png",
     specs: {
       type: "Flavoured Gin",
-      abv: "43.0%",
+      abv: "40.0%",
       origin: "East Africa",
       volume: "200ml"
     },
