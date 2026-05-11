@@ -62,7 +62,7 @@ const spirits: Spirit[] = [
       type: "Premium Vodka",
       abv: "37.5%",
       origin: "East Africa",
-      volume: "750ml"
+      volume: "250ml"
     },
     badges: {
       category: "Vodka",
@@ -78,7 +78,7 @@ const spirits: Spirit[] = [
       type: "Premium Gin",
       abv: "43.0%",
       origin: "East Africa",
-      volume: "750ml"
+      volume: "250ml"
     },
     badges: {
       category: "Gin",
@@ -94,7 +94,7 @@ const spirits: Spirit[] = [
       type: "Flavoured Gin",
       abv: "43.0%",
       origin: "East Africa",
-      volume: "750ml"
+      volume: "200ml"
     },
     badges: {
       category: "Gin",
@@ -110,7 +110,7 @@ const spirits: Spirit[] = [
       type: "Premium Gin",
       abv: "40.0%",
       origin: "East Africa",
-      volume: "750ml"
+      volume: "250ml"
     },
     badges: {
       category: "Gin",
