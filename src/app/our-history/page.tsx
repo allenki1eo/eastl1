@@ -39,7 +39,7 @@ const eras = [
     title: "Today & Beyond",
     description:
       "A leading name in premium East African beverages with a growing portfolio and regional presence. We continue pushing forward — driven by pride in our roots and a passion for excellence that never settles.",
-    images: ["/images/p2.png", "/images/p3.png", "/images/p4.png", "/images/p5.png"],
+    images: [],
   },
 ];
 
@@ -94,7 +94,7 @@ export default function OurHistoryPage() {
             <div className={styles.content}>
               <div className={`absolute inset-0 flex items-center ${isEven ? "flex-row" : "flex-row-reverse"}`}>
 
-                <div className="w-full md:w-1/2 px-10 md:px-16 lg:px-24 z-20 relative">
+                <div className={`w-full z-20 relative px-10 md:px-16 lg:px-24 ${era.images.length > 0 ? "md:w-1/2" : "md:max-w-3xl md:mx-auto"}`}>
                   <span className="text-[#c99b3e] text-xs font-bold uppercase tracking-[0.4em] mb-3 block" style={{ fontFamily: "var(--font-open-sans), sans-serif" }}>
                     Chapter {era.chapter}
                   </span>
@@ -110,13 +110,15 @@ export default function OurHistoryPage() {
                   <div className="w-12 h-0.5 bg-[#c99b3e] mt-8" />
                 </div>
 
-                <div className="hidden md:grid grid-cols-2 gap-3 w-1/2 h-full items-center p-10">
-                  {era.images.map((img, i) => (
-                    <div key={i} className="relative w-full aspect-[3/4] rounded-lg overflow-hidden">
-                      <Image src={img} alt={`${era.title} — ${i + 1}`} fill className="object-cover" />
-                    </div>
-                  ))}
-                </div>
+                {era.images.length > 0 && (
+                  <div className="hidden md:grid grid-cols-2 gap-3 w-1/2 h-full items-center p-10">
+                    {era.images.map((img, i) => (
+                      <div key={i} className="relative w-full aspect-[3/4] rounded-lg overflow-hidden">
+                        <Image src={img} alt={`${era.title} — ${i + 1}`} fill className="object-cover" />
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
 
               <div
