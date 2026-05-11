@@ -2,31 +2,36 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 export default function AgeVerificationModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
-    // Check if user has already verified their age in this session
-    const isVerified = sessionStorage.getItem("ageVerified");
+    // Don't show modal on the underage page
+    if (pathname === "/underage") return;
+
+    // Check if user has already verified their age on this device
+    const isVerified = localStorage.getItem("ageVerified");
 
     if (!isVerified) {
       // Small delay before showing modal for better UX
       setTimeout(() => setIsOpen(true), 500);
     }
-  }, []);
+  }, [pathname]);
 
   const handleConfirm = () => {
-    // User confirms they are of legal age
-    sessionStorage.setItem("ageVerified", "true");
+    // User confirms they are of legal age — persist across sessions
+    localStorage.setItem("ageVerified", "true");
     setIsExiting(true);
     setTimeout(() => setIsOpen(false), 300);
   };
 
   const handleDeny = () => {
-    // User is underage - redirect to Jambo Group website
-    window.location.href = "https://jambogroup.co.tz";
+    // User is underage — redirect to age-restricted page
+    window.location.href = "/underage";
   };
 
   if (!isOpen) return null;
