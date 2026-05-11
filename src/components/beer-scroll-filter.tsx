@@ -11,7 +11,6 @@ interface Beer {
   specs: {
     type: string;
     abv: string;
-    ibu: string;
     volume: string;
   };
   badges: {
@@ -29,9 +28,8 @@ const beers: Beer[] = [
     image: "/images/cider.png",
     specs: {
       type: "Cider",
-      abv: "5.0%",
-      ibu: "18 IBU",
-      volume: "500ml"
+      abv: "5.5%",
+      volume: "330ml"
     },
     badges: {
       origin: "Tanzania",
@@ -46,9 +44,8 @@ const beers: Beer[] = [
     image: "/images/goldberg.png",
     specs: {
       type: "Premium Malt Lager",
-      abv: "5.6%",
-      ibu: "20 IBU",
-      volume: "500ml"
+      abv: "5.0%",
+      volume: "330ml"
     },
     badges: {
       origin: "Tanzania",
@@ -64,8 +61,7 @@ const beers: Beer[] = [
     specs: {
       type: "Premium Lager",
       abv: "4.2%",
-      ibu: "16 IBU",
-      volume: "500ml"
+      volume: "330ml"
     },
     badges: {
       origin: "Tanzania",
@@ -80,9 +76,8 @@ const beers: Beer[] = [
     image: "/images/basembi.png",
     specs: {
       type: "Premium Lager",
-      abv: "5.0%",
-      ibu: "20 IBU",
-      volume: "500ml"
+      abv: "5.8%",
+      volume: "330ml"
     },
     badges: {
       origin: "Tanzania",
@@ -97,9 +92,8 @@ const beers: Beer[] = [
     image: "/images/mbogo.png",
     specs: {
       type: "Premium Lager",
-      abv: "5.5%",
-      ibu: "24 IBU",
-      volume: "500ml"
+      abv: "10%",
+      volume: "330ml"
     },
     badges: {
       origin: "Tanzania",
@@ -244,16 +238,6 @@ export default function BeerScrollFilter() {
                 <div
                   className={`flex justify-between mb-1.5 text-sm transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] ${currentIndex === index
                     ? "opacity-100 translate-x-0 delay-[700ms]"
-                    : "opacity-0 -translate-x-5"
-                    }`}
-                  style={{ fontFamily: "var(--font-open-sans), sans-serif" }}
-                >
-                  <span className="text-white/70">IBU:</span>
-                  <span className="font-semibold">{beer.specs.ibu}</span>
-                </div>
-                <div
-                  className={`flex justify-between mb-1.5 text-sm transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] ${currentIndex === index
-                    ? "opacity-100 translate-x-0 delay-[750ms]"
                     : "opacity-0 -translate-x-5"
                     }`}
                   style={{ fontFamily: "var(--font-open-sans), sans-serif" }}
