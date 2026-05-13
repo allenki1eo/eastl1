@@ -1,23 +1,22 @@
 /* ── Hero ──────────────────────────────────────────────────────── */
 .hero {
   position: relative;
-  min-height: 40vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 8rem 1rem 4rem;
+  padding: 8rem 1rem 3rem;
 }
 
 .heroEyebrow {
   font-family: var(--font-open-sans), sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.5em;
   text-transform: uppercase;
   color: #c99b3e;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .heroTitle {
@@ -28,93 +27,167 @@
   letter-spacing: 0.04em;
   color: #fff;
   line-height: 1;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .heroDivider {
-  width: 64px;
-  height: 2px;
+  width: 56px;
+  height: 1px;
   background: #c99b3e;
   margin: 0 auto;
 }
 
 .heroSub {
   font-family: var(--font-open-sans), sans-serif;
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.35);
   text-transform: uppercase;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.3em;
   margin-top: 1.25rem;
 }
 
-/* ── Grid ──────────────────────────────────────────────────────── */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.25rem;
-  padding: 0 1.25rem 6rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  container-type: inline-size;
+/* ── Tree section ──────────────────────────────────────────────── */
+.treeSection {
+  padding: 1rem 1rem 6rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
-/* ── Card ──────────────────────────────────────────────────────── */
-.card {
+.treeContainer {
+  display: inline-flex;
+  justify-content: center;
+  min-width: 100%;
+  padding: 1rem 2rem 2rem;
+}
+
+/* ── Tree node wrapper ─────────────────────────────────────────── */
+.nodeWrapper {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-  min-height: 200px;
-  padding: 1.5rem;
-  container-type: inline-size;
-  border-radius: 8px;
-  background: #111111;
-  border: 1px solid rgba(201, 155, 62, 0.12);
-  transition: background-color 0.25s ease-out, border-color 0.25s ease-out;
-  cursor: default;
-  overflow: hidden;
-  position: relative;
+  align-items: center;
 }
 
-.card::before {
-  content: "";
+/* ── Children row ──────────────────────────────────────────────── */
+.childrenRow {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.childCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 0 0.5rem;
+}
+
+/* Horizontal connector segments */
+.childCol::before {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #c99b3e, transparent);
+  height: 1px;
+  background: rgba(201, 155, 62, 0.45);
+}
+.childCol:first-child::before { left: 50%; }
+.childCol:last-child::before  { right: 50%; }
+.childCol:only-child::before  { display: none; }
+
+/* ── Connectors ────────────────────────────────────────────────── */
+.connectorDown,
+.connectorUp {
+  width: 1px;
+  height: 1.75rem;
+  background: linear-gradient(to bottom, rgba(201,155,62,.6), rgba(201,155,62,.25));
+  flex-shrink: 0;
+}
+
+.connectorUp {
+  background: linear-gradient(to bottom, rgba(201,155,62,.25), rgba(201,155,62,.6));
+}
+
+/* ── Card base ─────────────────────────────────────────────────── */
+.card {
+  position: relative;
+  border-radius: 6px;
+  background: #0e0e0e;
+  border: 1px solid rgba(201, 155, 62, 0.12);
+  transition: background 0.25s ease-out, border-color 0.25s ease-out, box-shadow 0.25s ease-out;
+  cursor: default;
+  overflow: hidden;
+  container-type: inline-size;
+  flex-shrink: 0;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c99b3e 50%, transparent);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
 .card:hover {
-  background: #1a1a1a;
-  border-color: rgba(201, 155, 62, 0.3);
+  background: #161616;
+  border-color: rgba(201, 155, 62, 0.32);
+  box-shadow: 0 0 24px rgba(201, 155, 62, 0.06), 0 4px 20px rgba(0,0,0,.4);
 }
 
-.card:hover::before {
-  opacity: 1;
+.card:hover::after { opacity: 1; }
+
+/* depth-based sizing */
+.cardDepth0 { width: 210px; min-height: 120px; }
+.cardDepth1 { width: 180px; min-height: 106px; }
+.cardDepth2 { width: 165px; min-height: 96px; }
+.cardDepth3 { width: 158px; min-height: 90px; }
+.cardDepth4 { width: 158px; min-height: 90px; }
+
+/* ── Text layers ───────────────────────────────────────────────── */
+.titleLayer,
+.nameLayer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 0.875rem;
 }
 
-.memberRole {
+.titleText {
   font-family: var(--font-open-sans), sans-serif;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.35em;
+  font-size: clamp(9px, 5.5cqw, 12px);
+  font-weight: 600;
   text-transform: uppercase;
-  color: #c99b3e;
-  margin-bottom: 0.6rem;
-  display: block;
+  letter-spacing: 0.07em;
+  color: #c8c8c8;
+  line-height: 1.35;
+  margin: 0;
 }
 
-.card h2 {
+/* gold dot accent top-left */
+.titleLayer::before {
+  content: '';
+  position: absolute;
+  top: 0.75rem;
+  left: 0.875rem;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #c99b3e;
+  opacity: 0.7;
+}
+
+.nameH2 {
   font-family: var(--font-bebas), sans-serif;
-  font-size: clamp(18px, 7cqw, 28px);
+  font-size: clamp(13px, 7.5cqw, 20px);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #e8e8e8;
-  line-height: 1.1;
+  letter-spacing: 0.08em;
+  color: #c99b3e;
+  line-height: 1.15;
   will-change: transform;
   margin: 0;
 }
@@ -135,9 +208,7 @@
   white-space: nowrap;
 }
 
-:global(.face-front) {
-  opacity: 1;
-}
+:global(.face-front) { opacity: 1; }
 
 :global(.face-bottom) {
   top: 100%;
@@ -155,4 +226,68 @@
   top: 0;
   transform-origin: 50% 50%;
   transform: translateZ(2.5rem) rotateX(-180deg);
+}
+
+/* ── Mobile ────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .treeSection {
+    overflow-x: visible;
+    padding: 0.5rem 1rem 5rem;
+  }
+
+  .treeContainer {
+    display: block;
+    padding: 0.5rem 0 1rem;
+  }
+
+  .nodeWrapper {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  /* flatten: children flow vertically */
+  .childrenRow {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding-left: 1rem;
+    border-left: 1px solid rgba(201, 155, 62, 0.3);
+    margin-left: 0.5rem;
+    position: relative;
+  }
+
+  /* hide horizontal branch lines on mobile */
+  .childCol::before { display: none; }
+
+  .childCol {
+    align-items: flex-start;
+    padding: 0;
+    width: 100%;
+  }
+
+  /* connector up becomes a left tick */
+  .connectorUp {
+    width: 0.75rem;
+    height: 1px;
+    background: rgba(201, 155, 62, 0.5);
+    margin-top: 0.75rem;
+    margin-left: -0.01rem;
+  }
+
+  .connectorDown {
+    width: 1px;
+    height: 0.75rem;
+    margin-left: 0.5rem;
+  }
+
+  /* cards go full-width on mobile */
+  .cardDepth0,
+  .cardDepth1,
+  .cardDepth2,
+  .cardDepth3,
+  .cardDepth4 {
+    width: 100%;
+    max-width: 340px;
+    min-height: 90px;
+  }
 }
