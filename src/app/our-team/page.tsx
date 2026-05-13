@@ -206,6 +206,21 @@ export default function OurTeamPage() {
           animate(emailBar,  { maxHeight: "0px",   opacity: 0, duration: 260 });
         };
 
+        /* Touch devices: tap to toggle instead of hover */
+        const isTouch = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+
+        if (isTouch) {
+          let open = false;
+          const onTap = (e: Event) => {
+            /* Let mailto links work normally */
+            if ((e.target as HTMLElement).closest("a")) return;
+            open = !open;
+            open ? onEnter() : onLeave();
+          };
+          el.addEventListener("click", onTap);
+          return () => el.removeEventListener("click", onTap);
+        }
+
         el.addEventListener("pointerenter", onEnter);
         el.addEventListener("pointerleave", onLeave);
 
