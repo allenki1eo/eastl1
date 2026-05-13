@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { animate, createScope, createTimeline, stagger, text } from "animejs";
 import styles from "./page.module.css";
 
 const teamMembers = [
@@ -25,51 +26,47 @@ export default function OurTeamPage() {
     if (initialized.current) return;
     initialized.current = true;
 
-    import("animejs").then((anime) => {
-      const { animate, createScope, createTimeline, stagger, text } = anime;
+    teamMembers.forEach((_, index) => {
+      const el = document.getElementById(`team-member-${index}`);
+      if (!el) return;
 
-      teamMembers.forEach((_, index) => {
-        const el = document.getElementById(`team-member-${index}`);
-        if (!el) return;
+      createScope({
+        root: `#team-member-${index}`,
+        defaults: { ease: "outQuad" },
+      }).add((sc) => {
+        if (!sc) return;
 
-        createScope({
-          root: `#team-member-${index}`,
-          defaults: { ease: "outQuad" },
-        }).add((sc) => {
-          if (!sc) return;
-
-          text.split("h2", {
-            words: `<span class="word-3d word-{i}">
-              <em class="face face-top">{value}</em>
-              <em class="face-front">{value}</em>
-              <em class="face face-bottom">{value}</em>
-              <em class="face face-back">{value}</em>
-            </span>`,
-          });
-
-          const wordStagger = stagger(50, { use: "data-word", start: 0 });
-
-          const rotateAnim = createTimeline({
-            autoplay: false,
-            defaults: { ease: "inOut(2)", duration: 750 },
-          })
-            .add(".word-3d",             { rotateX: -180 },       wordStagger)
-            .add(".word-3d .face-top",   { opacity: [0, 0, 0] },  wordStagger)
-            .add(".word-3d .face-front", { opacity: [1, 0, 0] },  wordStagger)
-            .add(".word-3d .face-bottom",{ opacity: [0, 1, 0] },  wordStagger)
-            .add(".word-3d .face-back",  { opacity: [0, 0, 1] },  wordStagger);
-
-          const onEnter = () => { animate(rotateAnim, { progress: 1 }); };
-          const onLeave = () => { animate(rotateAnim, { progress: 0 }); };
-
-          el.addEventListener("pointerenter", onEnter);
-          el.addEventListener("pointerleave", onLeave);
-
-          return () => {
-            el.removeEventListener("pointerenter", onEnter);
-            el.removeEventListener("pointerleave", onLeave);
-          };
+        text.split("h2", {
+          words: `<span class="word-3d word-{i}">
+            <em class="face face-top">{value}</em>
+            <em class="face-front">{value}</em>
+            <em class="face face-bottom">{value}</em>
+            <em class="face face-back">{value}</em>
+          </span>`,
         });
+
+        const wordStagger = stagger(50, { use: "data-word", start: 0 });
+
+        const rotateAnim = createTimeline({
+          autoplay: false,
+          defaults: { ease: "inOut(2)", duration: 750 },
+        })
+          .add(".word-3d",              { rotateX: -180 },       wordStagger)
+          .add(".word-3d .face-top",    { opacity: [0, 0, 0] },  wordStagger)
+          .add(".word-3d .face-front",  { opacity: [1, 0, 0] },  wordStagger)
+          .add(".word-3d .face-bottom", { opacity: [0, 1, 0] },  wordStagger)
+          .add(".word-3d .face-back",   { opacity: [0, 0, 1] },  wordStagger);
+
+        const onEnter = () => { animate(rotateAnim, { progress: 1 }); };
+        const onLeave = () => { animate(rotateAnim, { progress: 0 }); };
+
+        el.addEventListener("pointerenter", onEnter);
+        el.addEventListener("pointerleave", onLeave);
+
+        return () => {
+          el.removeEventListener("pointerenter", onEnter);
+          el.removeEventListener("pointerleave", onLeave);
+        };
       });
     });
   }, []);
