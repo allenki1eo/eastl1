@@ -1,0 +1,158 @@
+/* ── Hero ──────────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8rem 1rem 4rem;
+}
+
+.heroEyebrow {
+  font-family: var(--font-open-sans), sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: #c99b3e;
+  margin-bottom: 1.5rem;
+}
+
+.heroTitle {
+  font-family: var(--font-bebas), sans-serif;
+  font-size: clamp(3.5rem, 10vw, 8rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+
+.heroDivider {
+  width: 64px;
+  height: 2px;
+  background: #c99b3e;
+  margin: 0 auto;
+}
+
+.heroSub {
+  font-family: var(--font-open-sans), sans-serif;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  margin-top: 1.25rem;
+}
+
+/* ── Grid ──────────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  padding: 0 1.25rem 6rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  container-type: inline-size;
+}
+
+/* ── Card ──────────────────────────────────────────────────────── */
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  min-height: 200px;
+  padding: 1.5rem;
+  container-type: inline-size;
+  border-radius: 8px;
+  background: #111111;
+  border: 1px solid rgba(201, 155, 62, 0.12);
+  transition: background-color 0.25s ease-out, border-color 0.25s ease-out;
+  cursor: default;
+  overflow: hidden;
+  position: relative;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #c99b3e, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover {
+  background: #1a1a1a;
+  border-color: rgba(201, 155, 62, 0.3);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.memberRole {
+  font-family: var(--font-open-sans), sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #c99b3e;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.card h2 {
+  font-family: var(--font-bebas), sans-serif;
+  font-size: clamp(18px, 7cqw, 28px);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #e8e8e8;
+  line-height: 1.1;
+  will-change: transform;
+  margin: 0;
+}
+
+/* ── 3-D word faces (words-3d-jp effect) ──────────────────────── */
+:global(.word-3d) {
+  perspective: 1000px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform-origin: 50% 50% 1rem;
+  display: inline-block;
+}
+
+:global(.face) {
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  white-space: nowrap;
+}
+
+:global(.face-front) {
+  opacity: 1;
+}
+
+:global(.face-bottom) {
+  top: 100%;
+  transform-origin: 50% 0%;
+  transform: rotateX(90deg);
+}
+
+:global(.face-top) {
+  bottom: 100%;
+  transform-origin: 50% 100%;
+  transform: rotateX(-90deg);
+}
+
+:global(.face-back) {
+  top: 0;
+  transform-origin: 50% 50%;
+  transform: translateZ(2.5rem) rotateX(-180deg);
+}
