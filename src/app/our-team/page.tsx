@@ -14,15 +14,13 @@ type Member = {
   initials: string;
 };
 
-type Tier = {
-  label: string;
-  members: Member[];
-};
+type Tier = { label: string; num: string; members: Member[] };
 
 /* ── Data ──────────────────────────────────────────────────────── */
 const tiers: Tier[] = [
   {
     label: "Executive Leadership",
+    num: "01",
     members: [
       { id: 0, name: "Gasper H Kileo",   title: "Chief Executive Officer",    email: "ceo@eastafricanspirits.com", initials: "GK" },
       { id: 1, name: "Godbless G Kileo", title: "Chief Operating Officer",    email: "coo@eastafricanspirits.com", initials: "GG" },
@@ -31,6 +29,7 @@ const tiers: Tier[] = [
   },
   {
     label: "Management",
+    num: "02",
     members: [
       { id: 3, name: "Leonard Mushi",    title: "General Manager",            email: "info@eastafricanspirits.com", initials: "LM" },
       { id: 4, name: "Ansila Daniel",    title: "Human Resources",            email: "hr@eastafricanspirits.com",   initials: "AD" },
@@ -40,6 +39,7 @@ const tiers: Tier[] = [
   },
   {
     label: "Operations",
+    num: "03",
     members: [
       { id: 7,  name: "Julius Nyaki",      title: "Plant Manager",         email: "info@eastafricanspirits.com", initials: "JN" },
       { id: 8,  name: "Joseph Otieno",     title: "Chief Engineer",        email: "info@eastafricanspirits.com", initials: "JO" },
@@ -52,17 +52,15 @@ const tiers: Tier[] = [
 
 const allMembers = tiers.flatMap((t) => t.members);
 
-/* ── Card media: photo → initials fallback ─────────────────────── */
-function CardMedia({ member }: { member: Member }) {
+/* ── Photo / initials placeholder ─────────────────────────────── */
+function CardPhoto({ member }: { member: Member }) {
   const [err, setErr] = useState(false);
   useEffect(() => { setErr(false); }, [member.id]);
 
   if (err) {
     return (
-      <div className={`${styles.cardPlaceholder} team-card-photo`}>
-        <span className={styles.placeholderInitials}>{member.initials}</span>
-        {/* subtle decorative ring */}
-        <div className={styles.placeholderRing} />
+      <div className={`${styles.placeholder} team-card-photo`}>
+        <span className={styles.placeholderText}>{member.initials}</span>
       </div>
     );
   }
@@ -71,89 +69,80 @@ function CardMedia({ member }: { member: Member }) {
     <img
       src={`/images/team/member-${member.id}.jpg`}
       alt={member.name}
-      className={`${styles.cardPhoto} team-card-photo`}
+      className={`${styles.photo} team-card-photo`}
       onError={() => setErr(true)}
     />
   );
 }
 
-/* ── Section divider ───────────────────────────────────────────── */
-function SectionDivider({ label }: { label: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [vis, setVis] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const ob = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { setVis(true); ob.disconnect(); } },
-      { threshold: 0.5 }
-    );
-    ob.observe(el);
-    return () => ob.disconnect();
-  }, []);
+/* ── Card ──────────────────────────────────────────────────────── */
+function MemberCard({ member }: { member: Member }) {
   return (
-    <div ref={ref} className={`${styles.divider} ${vis ? styles.dividerIn : ""}`}>
-      <div className={styles.dividerLine} />
-      <span className={styles.dividerLabel}>{label}</span>
-      <div className={styles.dividerLine} />
+    <div id={`team-member-${member.id}`} className={styles.card}>
+      {/* ── photo frame ── */}
+      <div className={styles.frame}>
+        <CardPhoto member={member} />
+
+        {/* hover overlay */}
+        <div className={`${styles.overlay} team-card-overlay`}>
+          <h2 className={`${styles.overlayName} team-name-h2`}>{member.name}</h2>
+          <a
+            href={`mailto:${member.email}`}
+            className={styles.emailBtn}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Mail className="w-3.5 h-3.5 flex-shrink-0" />
+            <span>Send email</span>
+          </a>
+        </div>
+      </div>
+
+      {/* ── info always visible below photo ── */}
+      <div className={styles.info}>
+        <p className={styles.infoName}>{member.name}</p>
+        <p className={styles.infoTitle}>{member.title}</p>
+      </div>
     </div>
   );
 }
 
-/* ── Individual card ───────────────────────────────────────────── */
-function TeamCard({ member, isExec }: { member: Member; isExec?: boolean }) {
-  return (
-    <article
-      id={`team-member-${member.id}`}
-      className={`${styles.card} ${isExec ? styles.cardExec : ""}`}
-    >
-      <CardMedia member={member} />
-
-      {/* overlay — shown on hover via anime.js */}
-      <div className={`${styles.overlay} team-card-overlay`}>
-        <p className={styles.overlayTitle}>{member.title}</p>
-        <h2 className={`${styles.overlayName} team-name-h2`}>{member.name}</h2>
-        <a
-          href={`mailto:${member.email}`}
-          className={styles.overlayEmail}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <Mail className="w-3 h-3 flex-shrink-0" />
-          <span>{member.email}</span>
-        </a>
-      </div>
-
-      {/* gold bottom line that grows on hover — pure CSS */}
-      <div className={styles.cardLine} />
-    </article>
-  );
-}
-
-/* ── Tier row with scroll reveal ───────────────────────────────── */
-function TierRow({ tier, isFirst }: { tier: Tier; isFirst: boolean }) {
+/* ── Tier section ──────────────────────────────────────────────── */
+function TierSection({ tier }: { tier: Tier }) {
   const ref = useRef<HTMLDivElement>(null);
   const [vis, setVis] = useState(false);
+
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     const ob = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) { setVis(true); ob.disconnect(); } },
-      { threshold: 0.06, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.05, rootMargin: "0px 0px -40px 0px" }
     );
     ob.observe(el);
     return () => ob.disconnect();
   }, []);
+
   return (
-    <div ref={ref} className={styles.tierRow}>
-      {tier.members.map((member, i) => (
-        <div
-          key={member.id}
-          className={`${styles.cardWrap} ${vis ? styles.cardWrapIn : ""}`}
-          style={{ transitionDelay: `${i * 85}ms` }}
-        >
-          <TeamCard member={member} isExec={isFirst} />
-        </div>
-      ))}
+    <div ref={ref} className={styles.tier}>
+      {/* section header */}
+      <div className={`${styles.tierHead} ${vis ? styles.tierHeadIn : ""}`}>
+        <span className={styles.tierNum}>{tier.num}</span>
+        <span className={styles.tierRule} />
+        <span className={styles.tierLabel}>{tier.label}</span>
+      </div>
+
+      {/* card grid */}
+      <div className={styles.grid}>
+        {tier.members.map((m, i) => (
+          <div
+            key={m.id}
+            className={`${styles.cardReveal} ${vis ? styles.cardRevealIn : ""}`}
+            style={{ transitionDelay: `${80 + i * 75}ms` }}
+          >
+            <MemberCard member={m} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
@@ -185,12 +174,12 @@ export default function OurTeamPage() {
           </span>`,
         });
 
-        utils.set(".team-card-overlay", { opacity: 0 });
+        utils.set(".team-card-overlay", { opacity: 0, translateY: "12px" });
 
         const ws = stagger(55, { use: "data-word", start: 0 });
         const rotateAnim = createTimeline({
           autoplay: false,
-          defaults: { ease: "inOut(2)", duration: 680 },
+          defaults: { ease: "inOut(2)", duration: 650 },
         })
           .add(".word-3d",               { rotateX: -180 },      ws)
           .add(".word-3d .face-top",     { opacity: [0, 0, 0] }, ws)
@@ -201,25 +190,28 @@ export default function OurTeamPage() {
         const onEnter = () => {
           const ov = el.querySelector<HTMLElement>(".team-card-overlay");
           if (ov) ov.style.pointerEvents = "auto";
-          animate(".team-card-photo",   { scale: 1.07, duration: 700, ease: "outQuad" });
-          animate(".team-card-overlay", { opacity: 1,  duration: 320, ease: "outQuad" });
+          animate(".team-card-photo",   { scale: 1.06, duration: 650, ease: "outQuad" });
+          animate(".team-card-overlay", { opacity: 1, translateY: "0px", duration: 300, ease: "outQuad" });
           animate(rotateAnim, { progress: 1 });
         };
 
         const onLeave = () => {
           const ov = el.querySelector<HTMLElement>(".team-card-overlay");
           if (ov) ov.style.pointerEvents = "none";
-          animate(".team-card-photo",   { scale: 1,   duration: 550, ease: "outQuad" });
+          animate(".team-card-photo",   { scale: 1,   duration: 500, ease: "outQuad" });
           animate(rotateAnim, { progress: 0 });
-          animate(".team-card-overlay", { opacity: 0, duration: 260, delay: 220, ease: "outQuad" });
+          animate(".team-card-overlay", { opacity: 0, translateY: "12px", duration: 280, delay: 180, ease: "outQuad" });
         };
 
-        el.addEventListener("pointerenter", onEnter);
-        el.addEventListener("pointerleave", onLeave);
+        // hover on the frame (photo area), not the whole card
+        const frame = el.querySelector<HTMLElement>(`.${styles.frame}`);
+        if (!frame) return;
+        frame.addEventListener("pointerenter", onEnter);
+        frame.addEventListener("pointerleave", onLeave);
 
         return () => {
-          el.removeEventListener("pointerenter", onEnter);
-          el.removeEventListener("pointerleave", onLeave);
+          frame.removeEventListener("pointerenter", onEnter);
+          frame.removeEventListener("pointerleave", onLeave);
         };
       });
     });
@@ -229,23 +221,24 @@ export default function OurTeamPage() {
     <main className="min-h-screen bg-black">
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className={styles.hero}>
-        <p className={styles.heroEyebrow}>East African Spirits</p>
-        <h1 className={styles.heroTitle}>Our Team</h1>
-        <div className={styles.heroDivider} />
-        <p className={styles.heroSub}>
-          {allMembers.length} leaders driving excellence across East Africa
-        </p>
+        <div className={styles.heroInner}>
+          <p className={styles.heroEyebrow}>East African Spirits (T) Ltd</p>
+          <h1 className={styles.heroTitle}>
+            Meet the people&nbsp;behind&nbsp;every bottle.
+          </h1>
+          <p className={styles.heroBody}>
+            Architects of quality, champions of craft — {allMembers.length} leaders
+            driving East Africa&apos;s most ambitious brewery forward.
+          </p>
+        </div>
       </section>
 
-      {/* ── Grid ─────────────────────────────────────────────── */}
-      <section className={styles.grid}>
-        {tiers.map((tier, i) => (
-          <div key={tier.label}>
-            <SectionDivider label={tier.label} />
-            <TierRow tier={tier} isFirst={i === 0} />
-          </div>
+      {/* ── Tiers ────────────────────────────────────────────── */}
+      <div className={styles.tiers}>
+        {tiers.map((tier) => (
+          <TierSection key={tier.num} tier={tier} />
         ))}
-      </section>
+      </div>
     </main>
   );
 }
