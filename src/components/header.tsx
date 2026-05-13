@@ -9,6 +9,7 @@ const menuItems = [
   { name: "Home", href: "/" },
   // { name: "About Us", href: "/about-us" },
   { name: "Our History", href: "/our-history" },
+  { name: "Our Team", href: "/our-team" },
   { name: "Our Beers", href: "/our-beers" },
   { name: "Our Spirits", href: "/our-spirits" },
   { name: "Contacts", href: "/contacts" },
