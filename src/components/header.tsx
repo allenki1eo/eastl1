@@ -12,6 +12,7 @@ const menuItems = [
   { name: "Our Team", href: "/our-team" },
   { name: "Our Beers", href: "/our-beers" },
   { name: "Our Spirits", href: "/our-spirits" },
+  { name: "Press", href: "/press" },
   { name: "Contacts", href: "/contacts" },
 ];
 
