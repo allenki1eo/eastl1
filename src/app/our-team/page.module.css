@@ -5,154 +5,103 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 8rem 1rem 3.5rem;
-  border-bottom: 1px solid rgba(201, 155, 62, 0.08);
+  padding: 9rem 1.5rem 4.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .heroEyebrow {
   font-family: var(--font-open-sans), sans-serif;
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 700;
-  letter-spacing: 0.5em;
+  letter-spacing: 0.55em;
   text-transform: uppercase;
   color: #c99b3e;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .heroTitle {
   font-family: var(--font-bebas), sans-serif;
-  font-size: clamp(3.5rem, 10vw, 8rem);
+  font-size: clamp(4rem, 11vw, 9rem);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   color: #fff;
   line-height: 1;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .heroDivider {
-  width: 48px;
+  width: 40px;
   height: 1px;
   background: #c99b3e;
+  margin-bottom: 1.5rem;
 }
 
 .heroSub {
   font-family: var(--font-open-sans), sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   color: rgba(255, 255, 255, 0.35);
   text-transform: uppercase;
-  letter-spacing: 0.3em;
-  margin-top: 1.25rem;
-  margin-bottom: 2rem;
+  letter-spacing: 0.25em;
 }
 
-.heroStat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.2rem;
-  margin-top: 0.5rem;
-  padding: 0.75rem 1.75rem;
-  border: 1px solid rgba(201, 155, 62, 0.2);
-  border-radius: 4px;
-}
-
-.heroStatNum {
-  font-family: var(--font-bebas), sans-serif;
-  font-size: 2.25rem;
-  color: #c99b3e;
-  line-height: 1;
-}
-
-.heroStatLabel {
-  font-family: var(--font-open-sans), sans-serif;
-  font-size: 0.58rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
-}
-
-/* ── Tiers wrapper ─────────────────────────────────────────────── */
-.tiersSection {
-  padding: 3rem 1.5rem 7rem;
-  max-width: 860px;
+/* ── Page grid ─────────────────────────────────────────────────── */
+.grid {
+  padding: 4rem 2rem 8rem;
+  max-width: 1020px;
   margin: 0 auto;
-}
-
-/* ── Tier connector ────────────────────────────────────────────── */
-.tierConnector {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 0.25rem 0;
-  margin: 0.5rem 0;
+  gap: 3.5rem;
 }
 
-.connLine {
-  width: 1px;
-  height: 0;            /* starts collapsed — animates to 28px */
-  background: rgba(201, 155, 62, 0.5);
-  transition: height 0.55s ease;
-}
-
-.connDiamond {
-  width: 7px;
-  height: 7px;
-  background: transparent;
-  border: 1px solid rgba(201, 155, 62, 0.5);
-  transform: rotate(45deg) scale(0);
-  margin: 4px 0;
-  transition: transform 0.35s ease 0.4s, background 0.3s ease 0.4s;
-}
-
-/* triggered by JS when connector enters viewport */
-.connectorIn .connLine   { height: 28px; }
-.connectorIn .connDiamond {
-  transform: rotate(45deg) scale(1);
-  background: #c99b3e;
-  border-color: #c99b3e;
-}
-
-/* ── Tier section ──────────────────────────────────────────────── */
-.tierSection {
+/* ── Section divider ───────────────────────────────────────────── */
+.divider {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
-}
-
-.tierLabel {
-  font-family: var(--font-open-sans), sans-serif;
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: rgba(201, 155, 62, 0.65);
+  gap: 1.25rem;
+  margin-bottom: 2.25rem;
   opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.45s ease, transform 0.45s ease;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.tierLabelIn {
+.dividerIn {
   opacity: 1;
   transform: translateY(0);
 }
 
-.tierCards {
+.dividerLine {
+  flex: 1;
+  height: 1px;
+  background: rgba(201, 155, 62, 0.18);
+}
+
+.dividerLabel {
+  font-family: var(--font-open-sans), sans-serif;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: rgba(201, 155, 62, 0.55);
+  white-space: nowrap;
+}
+
+/* ── Tier row ──────────────────────────────────────────────────── */
+.tierRow {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.1rem;
-  width: 100%;
+  gap: 1.25rem;
 }
 
 /* ── Card scroll-reveal wrapper ────────────────────────────────── */
-.cardWrapper {
+.cardWrap {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.55s ease, transform 0.55s ease;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.cardIn {
+.cardWrapIn {
   opacity: 1;
   transform: translateY(0);
 }
@@ -160,147 +109,135 @@
 /* ── Card ──────────────────────────────────────────────────────── */
 .card {
   position: relative;
-  width: 155px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1.4rem 1rem 2.6rem;
-  border-radius: 10px;
-  background: #0d0d0d;
-  border: 1px solid rgba(201, 155, 62, 0.13);
-  cursor: pointer;
+  width: 190px;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
-  transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
-  -webkit-tap-highlight-color: transparent;
+  border-radius: 6px;
+  background: #0c0c0c;
+  cursor: pointer;
   container-type: inline-size;
+  /* gold line at bottom — grows on hover */
+  isolation: isolate;
 }
 
+/* slightly larger for executive tier */
 .cardExec {
-  width: 172px;
-  padding-top: 1.6rem;
+  width: 220px;
 }
 
-.card::before {
-  content: '';
+/* ── Gold bottom sweep line ────────────────────────────────────── */
+.cardLine {
   position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(ellipse at 50% 0%, rgba(201,155,62,.07) 0%, transparent 70%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-.card:hover,
-.card:focus-visible {
-  background: #141414;
-  border-color: rgba(201, 155, 62, 0.35);
-  box-shadow: 0 0 0 0 rgba(201,155,62,0), 0 8px 32px rgba(0,0,0,.55);
-  transform: translateY(-3px);
-  outline: none;
-}
-
-.card:hover::before,
-.card:focus-visible::before { opacity: 1; }
-
-/* ── Avatar ────────────────────────────────────────────────────── */
-.avatarWrap {
-  position: relative;
-  margin-bottom: 1.1rem;
-  flex-shrink: 0;
-}
-
-.avatarImg {
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-}
-
-.avatarInitials {
-  border-radius: 50%;
-  background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.avatarInitials span {
-  font-family: var(--font-bebas), sans-serif;
-  font-size: clamp(18px, 26%, 26px);
-  color: #c99b3e;
-  letter-spacing: 0.06em;
-}
-
-.avatarRing {
-  position: absolute;
-  inset: -3px;
-  border-radius: 50%;
-  border: 1px solid rgba(201, 155, 62, 0.25);
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
-  pointer-events: none;
-}
-
-.card:hover .avatarRing {
-  border-color: rgba(201, 155, 62, 0.65);
-  box-shadow: 0 0 12px rgba(201, 155, 62, 0.15);
-}
-
-/* ── Text layers ───────────────────────────────────────────────── */
-.textLayer {
-  position: absolute;
-  bottom: 1.5rem;
-  left: 0.75rem;
-  right: 0.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  min-height: 2.2rem;
-  pointer-events: none;
-}
-
-.titleText {
-  font-family: var(--font-open-sans), sans-serif;
-  font-size: clamp(8px, 5.8cqw, 10.5px);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  color: #a0a0a0;
-  line-height: 1.4;
-  margin: 0;
-  text-align: center;
-}
-
-.nameH2 {
-  font-family: var(--font-bebas), sans-serif;
-  font-size: clamp(13px, 8.5cqw, 16px);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #c99b3e;
-  line-height: 1.2;
-  will-change: transform;
-  margin: 0;
-  text-align: center;
-}
-
-.cardHint {
-  position: absolute;
-  bottom: 0.55rem;
+  bottom: 0;
   left: 0;
   right: 0;
-  text-align: center;
-  font-family: var(--font-open-sans), sans-serif;
-  font-size: 0.52rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(201, 155, 62, 0);
-  transition: color 0.25s ease;
+  height: 1px;
+  background: #c99b3e;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 10;
+}
+
+.card:hover .cardLine { transform: scaleX(1); }
+
+/* ── Photo ─────────────────────────────────────────────────────── */
+.cardPhoto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* scale controlled by anime.js */
+}
+
+/* ── Placeholder (initials) ────────────────────────────────────── */
+.cardPlaceholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(155deg, #121212 0%, #0e0e0e 50%, #111 100%);
+  /* scale controlled by anime.js */
+}
+
+.placeholderInitials {
+  font-family: var(--font-bebas), sans-serif;
+  font-size: clamp(3.5rem, 30cqw, 5.5rem);
+  color: rgba(201, 155, 62, 0.14);
+  letter-spacing: 0.12em;
+  user-select: none;
+  position: relative;
+  z-index: 1;
+}
+
+.placeholderRing {
+  position: absolute;
+  inset: 20%;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 155, 62, 0.06);
   pointer-events: none;
 }
 
-.card:hover .cardHint { color: rgba(201, 155, 62, 0.45); }
+/* ── Hover overlay ─────────────────────────────────────────────── */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.93) 0%,
+    rgba(0, 0, 0, 0.65) 38%,
+    rgba(0, 0, 0, 0.15) 65%,
+    transparent 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.1rem;
+  pointer-events: none; /* toggled by anime.js onEnter/onLeave */
+  /* opacity controlled by anime.js, starts at 0 */
+}
 
-/* ── 3-D word faces ────────────────────────────────────────────── */
+.overlayTitle {
+  font-family: var(--font-open-sans), sans-serif;
+  font-size: clamp(7px, 5cqw, 9.5px);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #c99b3e;
+  margin: 0 0 0.3rem;
+  line-height: 1.3;
+}
+
+.overlayName {
+  font-family: var(--font-bebas), sans-serif;
+  font-size: clamp(14px, 8.5cqw, 19px);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #ffffff;
+  margin: 0 0 0.7rem;
+  line-height: 1.15;
+  will-change: transform;
+}
+
+.overlayEmail {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-open-sans), sans-serif;
+  font-size: clamp(7px, 4.5cqw, 9px);
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  line-height: 1;
+  word-break: break-all;
+}
+
+.overlayEmail:hover { color: #c99b3e; }
+
+/* ── 3-D word faces (words-3d-jp) ─────────────────────────────── */
 :global(.word-3d) {
   perspective: 1000px;
   position: relative;
@@ -316,7 +253,7 @@
   white-space: nowrap;
 }
 
-:global(.face-front) { opacity: 1; }
+:global(.face-front)  { opacity: 1; }
 
 :global(.face-bottom) {
   top: 100%;
@@ -336,160 +273,45 @@
   transform: translateZ(2.5rem) rotateX(-180deg);
 }
 
-/* ── Modal ─────────────────────────────────────────────────────── */
-.modalOverlay {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  background: rgba(0, 0, 0, 0);
-  backdrop-filter: blur(0px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  transition: background 0.3s ease, backdrop-filter 0.3s ease;
-}
-
-.modalOverlayOpen {
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(8px);
-}
-
-.modalCard {
-  position: relative;
-  background: #0e0e0e;
-  border: 1px solid rgba(201, 155, 62, 0.2);
-  border-radius: 16px;
-  padding: 2.5rem 2rem 2rem;
-  max-width: 340px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(20px) scale(0.96);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(201,155,62,.08);
-}
-
-.modalCardOpen {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-.modalClose {
-  position: absolute;
-  top: 0.875rem;
-  right: 0.875rem;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-}
-
-.modalClose:hover { background: rgba(255,255,255,.12); color: #fff; }
-
-.modalAvatarWrap {
-  position: relative;
-  margin-bottom: 1.5rem;
-}
-
-.modalAvatarWrap .avatarImg,
-.modalAvatarWrap .avatarInitials {
-  border-radius: 50%;
-}
-
-.modalAvatarRing {
-  position: absolute;
-  inset: -5px;
-  border-radius: 50%;
-  border: 1px solid rgba(201, 155, 62, 0.5);
-  pointer-events: none;
-}
-
-.modalRole {
-  font-family: var(--font-open-sans), sans-serif;
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: #c99b3e;
-  margin: 0 0 0.6rem;
-}
-
-.modalName {
-  font-family: var(--font-bebas), sans-serif;
-  font-size: 1.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #fff;
-  margin: 0 0 1.25rem;
-  line-height: 1.1;
-}
-
-.modalDivider {
-  width: 36px;
-  height: 1px;
-  background: rgba(201, 155, 62, 0.4);
-  margin-bottom: 1.25rem;
-}
-
-.modalEmail {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-open-sans), sans-serif;
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.55);
-  text-decoration: none;
-  padding: 0.6rem 1rem;
-  border-radius: 6px;
-  border: 1px solid rgba(201, 155, 62, 0.15);
-  transition: color 0.2s, border-color 0.2s, background 0.2s;
-  word-break: break-all;
-}
-
-.modalEmail:hover {
-  color: #c99b3e;
-  border-color: rgba(201, 155, 62, 0.45);
-  background: rgba(201, 155, 62, 0.04);
-}
-
 /* ── Mobile ────────────────────────────────────────────────────── */
-@media (max-width: 640px) {
-  .tiersSection {
-    padding: 2rem 1rem 5rem;
+@media (max-width: 680px) {
+  .grid {
+    padding: 2.5rem 1rem 5rem;
+    gap: 2.5rem;
   }
 
-  .tierCards {
+  .tierRow {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 0.75rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.875rem;
     justify-items: center;
+  }
+
+  /* exec tier: 3 cards → 2+1 — center the lone card */
+  .tierRow > *:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: 50%;
+    max-width: 175px;
   }
 
   .card,
   .cardExec {
     width: 100%;
-    max-width: 200px;
+    max-width: 100%;
   }
 
-  /* single-column for very small screens */
-  @media (max-width: 320px) {
-    .tierCards {
-      grid-template-columns: 1fr;
-    }
+  .overlayEmail span {
+    display: none; /* show icon only on very small cards */
+  }
+}
+
+@media (max-width: 380px) {
+  .tierRow {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .modalCard {
-    padding: 2rem 1.25rem 1.5rem;
+  .tierRow > *:last-child:nth-child(odd) {
+    width: 80%;
+    max-width: 160px;
   }
 }
