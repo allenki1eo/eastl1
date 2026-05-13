@@ -67,7 +67,7 @@ function CardPhoto({ member }: { member: Member }) {
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src={`/images/team/member-${member.id}.jpg`}
+      src={`/images/team/member-${member.id}.png`}
       alt={member.name}
       className={`${styles.photo} team-card-photo`}
       onError={() => setErr(true)}
