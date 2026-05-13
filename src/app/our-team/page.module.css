@@ -301,6 +301,18 @@
   }
 }
 
+@media (hover: none) and (pointer: coarse) {
+  /* Whole card is the tap target on touch screens */
+  .card {
+    cursor: pointer;
+  }
+
+  /* Subtle tap highlight */
+  .card:active .frame {
+    opacity: 0.9;
+  }
+}
+
 @media (max-width: 640px) {
   .hero {
     padding: 7rem 1.25rem 3.5rem;
@@ -316,10 +328,6 @@
 
   .grid {
     gap: 1.25rem 1rem;
-  }
-
-  .emailLink span {
-    display: none;
   }
 }
 
