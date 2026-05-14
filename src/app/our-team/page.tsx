@@ -12,24 +12,34 @@ type Tier   = { label: string; num: string; members: Member[] };
 /* ── Data ──────────────────────────────────────────────────────── */
 const tiers: Tier[] = [
   {
-    label: "Executive Leadership", num: "01",
+    label: "Chief Executive", num: "01",
     members: [
-      { id: 0, name: "Gasper H Kileo",   title: "Chief Executive Officer",    email: "ceo@eastafricanspirits.com", initials: "GK" },
-      { id: 1, name: "Godbless G Kileo", title: "Chief Operating Officer",    email: "coo@eastafricanspirits.com", initials: "GG" },
-      { id: 2, name: "Galdness G Kileo", title: "Chief Financial Officer",    email: "cfo@eastafricanspirits.com", initials: "GK" },
+      { id: 0, name: "Gasper H Kileo", title: "Chief Executive Officer", email: "ceo@eastafricanspirits.com", initials: "GK" },
     ],
   },
   {
-    label: "Management", num: "02",
+    label: "Executive Leadership", num: "02",
     members: [
-      { id: 3, name: "Leonard Mushi",    title: "General Manager",            email: "info@eastafricanspirits.com", initials: "LM" },
+      { id: 1, name: "Godbless G Kileo", title: "Chief Operating Officer", email: "coo@eastafricanspirits.com", initials: "GG" },
+      { id: 2, name: "Galdness G Kileo", title: "Chief Financial Officer",  email: "cfo@eastafricanspirits.com", initials: "GK" },
+    ],
+  },
+  {
+    label: "General Management", num: "03",
+    members: [
+      { id: 3, name: "Leonard Mushi", title: "General Manager", email: "info@eastafricanspirits.com", initials: "LM" },
+    ],
+  },
+  {
+    label: "Management", num: "04",
+    members: [
       { id: 4, name: "Ansila Daniel",    title: "Human Resources",            email: "hr@eastafricanspirits.com",   initials: "AD" },
       { id: 5, name: "Happiness Nassor", title: "Accounting Manager",         email: "info@eastafricanspirits.com", initials: "HN" },
       { id: 6, name: "Eric H Kileo",     title: "Administrative Coordinator", email: "info@eastafricanspirits.com", initials: "EK" },
     ],
   },
   {
-    label: "Operations", num: "03",
+    label: "Operations", num: "05",
     members: [
       { id: 7,  name: "Julius Nyaki",      title: "Plant Manager",         email: "info@eastafricanspirits.com", initials: "JN" },
       { id: 8,  name: "Joseph Otieno",     title: "Chief Engineer",        email: "info@eastafricanspirits.com", initials: "JO" },
@@ -122,7 +132,16 @@ function TierSection({ tier }: { tier: Tier }) {
         <span className={styles.tierRule} />
         <span className={styles.tierLabel}>{tier.label}</span>
       </div>
-      <div className={styles.grid}>
+      <div
+        className={styles.grid}
+        style={
+          tier.members.length === 1
+            ? { gridTemplateColumns: "1fr", maxWidth: "280px" }
+            : tier.members.length === 2
+            ? { gridTemplateColumns: "repeat(2, 1fr)", maxWidth: "580px" }
+            : undefined
+        }
+      >
         {tier.members.map((m, i) => (
           <div
             key={m.id}
