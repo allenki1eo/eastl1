@@ -43,7 +43,7 @@ const tiers: Tier[] = [
     members: [
       { id: 7,  name: "Julius Nyaki",      title: "Plant Manager",         email: "info@eastafricanspirits.com", initials: "JN" },
       { id: 8,  name: "Joseph Otieno",     title: "Chief Engineer",        email: "info@eastafricanspirits.com", initials: "JO" },
-      { id: 9,  name: "Dioniz Rwemamu",    title: "QC Manager",            email: "info@eastafricanspirits.com", initials: "DR" },
+      { id: 9,  name: "Dioniz Rwamunwa",    title: "QC Manager",            email: "info@eastafricanspirits.com", initials: "DR" },
       { id: 10, name: "Valentine Salimbo", title: "Brew Manager",          email: "info@eastafricanspirits.com", initials: "VS" },
       { id: 11, name: "Ndekirwa Kaaya",    title: "Production Supervisor", email: "info@eastafricanspirits.com", initials: "NK" },
     ],
