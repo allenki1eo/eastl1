@@ -105,7 +105,7 @@ const spirits: Spirit[] = [
     brand: "furaha",
     name: "Furaha Gin",
     subtitle: "Perfection in Every Drop",
-    image: "/images/furaha.png",
+    image: "/images/furaha-new.svg",
     specs: {
       type: "Premium Gin",
       abv: "40.0%",
